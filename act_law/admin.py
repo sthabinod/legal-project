@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import ActLaw
 
-# Register your models here.
+class ActLawAdmin(admin.ModelAdmin):
+    list_display = ('name', 'code', 'status')  
+    search_fields = ('name', 'code')  
+
+admin.site.register(ActLaw, ActLawAdmin)
