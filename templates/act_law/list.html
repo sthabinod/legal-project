@@ -231,16 +231,16 @@
 											</tr>
 										</thead>
 										<tbody>
-											{% for d in data %}
+											{% for act_law in act_law_list %}
 											<tr>
 												<td>{{counter}}</td>
-												<td>{{d.name}}</td>
-												<td>{{d.code}}</td>		
-												<td>{{d.notes}}</td>
-												<td><span class="badge bg-success-light text-success-light">{{d.status}}</span></td>
+												<td>{{act_law.name}}</td>
+												<td>{{act_law.code}}</td>		
+												<td>{{act_law.notes}}</td>
+												<td><span class="badge bg-success-light text-success-light">{{act_law.status}}</span></td>
 												<td class="d-flex align-items-center">
-													<a href="#" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_actandthelaw"><i class="far fa-edit me-2"></i></a>
-													<a href="#" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_actandthelaw"><i class="far fa-trash-alt me-2"></i></a>
+													<a href="{% url 'actlaw_update' act_law.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_actandthelaw"><i class="far fa-edit me-2"></i></a>
+													<a  class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_actandthelaw"><i class="far fa-trash-alt me-2"></i></a>
 												</td>
 											</tr>
 											{% endfor %}							
@@ -270,40 +270,30 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<div class="row">
-							<div class="col-lg-12 col-md-12">
-								<div class="form-group">
-									<label>कोड</label>
-									<input type="text" class="form-control" placeholder="कोड प्रविष्ट गर्नुहोस्">
-								</div>
+						<form method="post" action="{% url 'actlaw_create' %}">
+							{% csrf_token %}
+							{% for field in form %}
+            <div class="mb-3">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="text-danger">
+                        {% for error in field.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+							<br>
+							<br>
+							<div class="modal-footer">
+								<button  data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</button>
+								<button type="submit" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">व्यवस्थापन गर्नुहोस्</button>
 							</div>
-							<div class="col-lg-12 col-md-12">
-								<div class="form-group">
-									<label>नाम</label>
-									<input type="text" class="form-control" placeholder="नाम प्रविष्ट गर्नुहोस्">
-								</div>
-							</div>
-							<div class="col-lg-12 col-md-12">
-								<div class="form-group">
-									<label>नोटहरू</label>
-									<input type="text" class="form-control" placeholder="नोटहरू प्रविष्ट गर्नुहोस्">
-								</div>
-							</div>
-							<div class="col-lg-12 col-md-12">
-								<div class="form-group">
-									<label>स्थिति</label>
-									<select class="select">
-										<option>निष्क्रिय</option>
-										<option>सक्रिय</option>
-									</select>
-								</div>
-							</div>
-						</div>
+						  </form>
 					</div>
-					<div class="modal-footer">
-						<a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</a>
-						<a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">व्यवस्थापन गर्नुहोस्</a>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -323,38 +313,28 @@
 					</div>
 					<div class="modal-body">
 						<div class="row">
-							<div class="col-lg-12 col-md-12">
-								<div class="form-group">
-									<label>कोड</label>
-									<input type="text" class="form-control" value="कोड" placeholder="कोड प्रविष्ट गर्नुहोस्">
-								</div>
-							</div>
-							<div class="col-lg-12 col-md-12">
-								<div class="form-group">
-									<label>नाम</label>
-									<input type="text" class="form-control" value="नाम" placeholder="नाम प्रविष्ट गर्नुहोस्">
-								</div>
-							</div>
-							<div class="col-lg-12 col-md-12">
-								<div class="form-group">
-									<label>नोटहरू</label>
-									<input type="text" class="form-control" value="नोटहरू" placeholder="नोटहरू प्रविष्ट गर्नुहोस्">
-								</div>
-							</div>
-							<div class="col-lg-12 col-md-12">
-								<div class="form-group">
-									<label>स्थिति</label>
-									<select class="select">
-										<option>निष्क्रिय</option>
-										<option>सक्रिय</option>
-									</select>
-								</div>
-							</div>
+							<form method="post" action="">
+								{% csrf_token %}
+								{% for field in form %}
+				<div class="mb-3">
+					{{ field.label_tag }}
+					{{ field }}
+					{% if field.errors %}
+						<div class="text-danger">
+							{% for error in field.errors %}
+								{{ error }}
+							{% endfor %}
+						</div>
+					{% endif %}
+				</div>
+			{% endfor %}
+			</form>
+						
 						</div>
 					</div>
 					<div class="modal-footer">
-						<a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</a>
-						<a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">अपडेट गर्नुहोस्</a>
+						<button data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</button>
+						<button data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">अपडेट गर्नुहोस्</button>
 					</div>
 				</div>
 			</div>
@@ -372,8 +352,8 @@
 						</div>
 						<div class="modal-btn delete-action">
 							<div class="row">
-								<div class="col-6">
-									<button type="reset" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-continue-btn">मेटाउन</button>
+								<div class="col-6"> 
+									<a href="" type="submit" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-continue-btn">मेटाउन</a>
 								</div>
 								<div class="col-6">
 									<button type="submit" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-cancel-btn">रद्द गर्नुहोस्</button>
@@ -388,5 +368,34 @@
 		
 	</div>
 	<!-- /Main Wrapper -->
-	
+	<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Add this script at the end of your template or in a separate file -->
+<script>
+  $(document).ready(function() {
+    $('.btn-danger').on('click', function(e) {
+      e.preventDefault();
+      var url = $(this).attr('href');
+      var confirmed = confirm($(this).data('confirm'));
+
+      if (confirmed) {
+        // Send the DELETE request
+        $.ajax({
+          url: url,
+          type: 'DELETE',
+          success: function(response) {
+            // Handle success, e.g., redirect to the list view
+            window.location.href = response.redirect_to;
+          },
+          error: function(error) {
+            // Handle error, show a message, etc.
+            console.error('Error deleting object:', error);
+          }
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock 'content' %}

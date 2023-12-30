@@ -1,6 +1,10 @@
+# urls.py
 from django.urls import path
-from . import views
+from .views import ActLawListView, ActLawCreateView, ActLawUpdateView, ActLawDeleteView
 
 urlpatterns = [
-    path("",views.ActLawView.as_view(),name="get_act_law")
+    path('actlaw/', ActLawListView.as_view(), name='actlaw_list'),
+    path('actlaw/create/', ActLawCreateView.as_view(), name='actlaw_create'),
+    path('actlaw/<int:pk>/update/', ActLawUpdateView.as_view(), name='actlaw_update'),
+    path('actlaw/<int:pk>/delete/', ActLawDeleteView.as_view(), name='actlaw_delete'),
 ]
