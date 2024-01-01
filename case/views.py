@@ -1,0 +1,123 @@
+# views.py
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
+from django.contrib import messages
+from .forms import CaseSubTypeForm, CaseStageForm
+from .models import CaseSubType, CaseStage
+
+class CaseSubTypeView(View):
+    template_name = 'case/list.html'
+
+    def get(self, request, *args, **kwargs):
+        case_subtype_list = CaseSubType.objects.filter(is_deleted=False)
+        form = CaseSubTypeForm()
+        return render(request, self.template_name, {"case_subtype_list": case_subtype_list,'form': form})
+
+class CaseSubTypeCreateView(View):
+    template_name = 'case/list.html'
+
+    def get(self, request, *args, **kwargs):
+        form = CaseSubTypeForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = CaseSubTypeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Object created successfully.")
+            return redirect('case_subtype_list')
+        else:
+            print(form.errors)  # Print form errors to the console for debugging
+            messages.error(request, "Form submission failed. Please check the form.")
+            return render(request, self.template_name, {'form': form})
+class CaseSubTypeUpdateView(View):
+    template_name = 'act_law/list.html'
+
+    def get(self, request, pk, *args, **kwargs):
+        case_subtype = get_object_or_404(CaseSubType, pk=pk)
+        form = CaseSubTypeForm(instance=case_subtype)
+        return render(request, self.template_name, {'form': form, 'case_subtype': case_subtype})
+
+    def post(self, request, pk, *args, **kwargs):
+        case_subtype = get_object_or_404(CaseSubType, pk=pk)
+        form = CaseSubTypeForm(request.POST, instance=case_subtype)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Object updated successfully.")
+            return redirect('case_subtype_list')
+        else:
+            messages.error(request, "Update form submission failed. Please check the form.")
+            return render(request, self.template_name, {'form': form, 'case_subtype': case_subtype})
+
+class CaseSubTypeDeleteView(View):
+    template_name = 'act_law/list.html' 
+
+    def get(self, request, pk, *args, **kwargs):
+        case_subtype = get_object_or_404(CaseSubType, pk=pk)
+        return render(request, self.template_name, {'case_subtype': case_subtype})
+
+    def post(self, request, pk, *args, **kwargs):
+        act_law = get_object_or_404(CaseSubType, pk=pk)
+        act_law.delete()  
+        messages.success(request, "Object deleted successfully.")
+        return redirect('case_subtype_list')
+
+
+
+
+class CaseStageView(View):
+    template_name = 'case/case_stage.html'
+
+    def get(self, request, *args, **kwargs):
+        case_stage_list = CaseStage.objects.filter(is_deleted=False)
+        form = CaseStageForm()
+        return render(request, self.template_name, {"case_stage_list": case_stage_list,'form': form})
+
+class CaseStageCreateView(View):
+    template_name = 'case/case_stage.html'
+
+    def get(self, request, *args, **kwargs):
+        form = CaseStageForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = CaseStageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Object created successfully.")
+            return redirect('case_stage_list')
+        else:
+            print(form.errors)  # Print form errors to the console for debugging
+            messages.error(request, "Form submission failed. Please check the form.")
+            return render(request, self.template_name, {'form': form})
+class CaseStageUpdateView(View):
+    template_name = 'case/case_stage.html'
+
+    def get(self, request, pk, *args, **kwargs):
+        case_stage = get_object_or_404(CaseStage, pk=pk)
+        form = CaseStageForm(instance=case_stage)
+        return render(request, self.template_name, {'form': form, 'case_stage': case_stage})
+
+    def post(self, request, pk, *args, **kwargs):
+        case_stage = get_object_or_404(CaseStage, pk=pk)
+        form = CaseSubTypeForm(request.POST, instance=case_stage)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Object updated successfully.")
+            return redirect('case_stage_list')
+        else:
+            messages.error(request, "Update form submission failed. Please check the form.")
+            return render(request, self.template_name, {'form': form, 'case_stage': case_stage})
+
+class CaseStageDeleteView(View):
+    template_name = 'case/case_stage.html' 
+
+    def get(self, request, pk, *args, **kwargs):
+        case_stage = get_object_or_404(CaseStage, pk=pk)
+        return render(request, self.template_name, {'case_stage': case_stage})
+
+    def post(self, request, pk, *args, **kwargs):
+        case_stage = get_object_or_404(CaseStage, pk=pk)
+        case_stage.delete()  
+        messages.success(request, "Object deleted successfully.")
+        return redirect('case_stage_list')

@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-<h1>Hello world</h1>
 {% block 'content' %}
 	<!-- Main Wrapper -->
 	<div class="main-wrapper">
@@ -239,8 +238,8 @@
 												<td>{{act_law.notes}}</td>
 												<td><span class="badge bg-success-light text-success-light">{{act_law.status}}</span></td>
 												<td class="d-flex align-items-center">
-													<a href="{% url 'actlaw_update' act_law.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_actandthelaw"><i class="far fa-edit me-2"></i></a>
-													<a  class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_actandthelaw"><i class="far fa-trash-alt me-2"></i></a>
+													<a href="{% url 'actlaw_update' act_law.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_actandthelaw" onclick="setDeleteId({{ act_law.id }})"><i class="far fa-edit me-2"></i></a>
+													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_actandthelaw" onclick="setDeleteId({{ act_law.id }})"><i class="far fa-trash-alt me-2"></i></a>
 												</td>
 											</tr>
 											{% endfor %}							
@@ -313,28 +312,28 @@
 					</div>
 					<div class="modal-body">
 						<div class="row">
-							<form method="post" action="">
+							<form id="update-form">
 								{% csrf_token %}
 								{% for field in form %}
-				<div class="mb-3">
-					{{ field.label_tag }}
-					{{ field }}
-					{% if field.errors %}
-						<div class="text-danger">
-							{% for error in field.errors %}
-								{{ error }}
-							{% endfor %}
-						</div>
-					{% endif %}
-				</div>
-			{% endfor %}
-			</form>
+									<div class="mb-3">
+										{{ field.label_tag }}
+										{{ field }}
+										{% if field.errors %}
+											<div class="text-danger">
+												{% for error in field.errors %}
+													{{ error }}
+												{% endfor %}
+											</div>
+										{% endif %}
+									</div>
+								{% endfor %}
+							</form>
 						
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</button>
-						<button data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">अपडेट गर्नुहोस्</button>
+						<button data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn" onclick="updateActLaw()">अपडेट गर्नुहोस्</button>
 					</div>
 				</div>
 			</div>
@@ -353,7 +352,7 @@
 						<div class="modal-btn delete-action">
 							<div class="row">
 								<div class="col-6"> 
-									<a href="" type="submit" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-continue-btn">मेटाउन</a>
+									<a href="" type="submit" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-continue-btn" onclick="softDelete()">मेटाउन</a>
 								</div>
 								<div class="col-6">
 									<button type="submit" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-cancel-btn">रद्द गर्नुहोस्</button>
@@ -368,34 +367,51 @@
 		
 	</div>
 	<!-- /Main Wrapper -->
-	<!-- Include jQuery library -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		let deleteId = null;
+	
+		function setDeleteId(id) {
+			deleteId = id;
+		}
+	</script>
+	<script>
+		function softDelete() {
+			if (deleteId !== null) {
+				// Make an AJAX request to soft delete the ActLaw
+				$.ajax({
+					url: `/act_law/${deleteId}/delete/`,
+					method: 'POST',
+					data: { csrfmiddlewaretoken: '{{ csrf_token }}' },  // Include CSRF token
+					success: function (data) {
+						// Handle success, e.g., refresh the page or update the table
+						location.reload();
+					},
+					error: function (error) {
+						console.error('Error:', error);
+					}
+				});
+			}
+		};
 
-<!-- Add this script at the end of your template or in a separate file -->
-<script>
-  $(document).ready(function() {
-    $('.btn-danger').on('click', function(e) {
-      e.preventDefault();
-      var url = $(this).attr('href');
-      var confirmed = confirm($(this).data('confirm'));
-
-      if (confirmed) {
-        // Send the DELETE request
-        $.ajax({
-          url: url,
-          type: 'DELETE',
-          success: function(response) {
-            // Handle success, e.g., redirect to the list view
-            window.location.href = response.redirect_to;
-          },
-          error: function(error) {
-            // Handle error, show a message, etc.
-            console.error('Error deleting object:', error);
-          }
-        });
-      }
-    });
-  });
-</script>
-
+		function updateActLaw() {
+			if (deleteId !== null) {
+			// Assuming you give your form an id="update-form"
+			var formData = $('#update-form').serialize();
+			var actLawId = $('#act_law_id').val();
+			console.log(deleteId)
+			$.ajax({
+				url: `/act_law/${deleteId}/update/`,
+				method: 'POST',
+				data: formData,
+				success: function (data) {
+					location.reload();  // You may want to update the table using JavaScript instead of reloading the entire page
+				},
+				error: function (error) {
+					console.error('Error:', error);
+				}
+			});
+		}
+		};
+	</script>
+		
 {% endblock 'content' %}

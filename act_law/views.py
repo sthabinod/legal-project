@@ -9,7 +9,7 @@ class ActLawListView(View):
     template_name = 'act_law/list.html'
 
     def get(self, request, *args, **kwargs):
-        act_law_list = ActLaw.objects.all()
+        act_law_list = ActLaw.objects.filter(is_deleted=False)
         form = ActLawForm()
         return render(request, self.template_name, {"act_law_list": act_law_list,'form': form})
 
@@ -32,7 +32,6 @@ class ActLawCreateView(View):
             print(form.errors)  # Print form errors to the console for debugging
             messages.error(request, "Form submission failed. Please check the form.")
             return render(request, self.template_name, {'form': form})
-        
 class ActLawUpdateView(View):
     template_name = 'act_law/list.html'
 
@@ -44,18 +43,23 @@ class ActLawUpdateView(View):
     def post(self, request, pk, *args, **kwargs):
         act_law = get_object_or_404(ActLaw, pk=pk)
         form = ActLawForm(request.POST, instance=act_law)
-
         if form.is_valid():
             form.save()
             messages.success(request, "Object updated successfully.")
             return redirect('actlaw_list')
         else:
-            messages.error(request, "Form submission failed. Please check the form.")
+            messages.error(request, "Update form submission failed. Please check the form.")
             return render(request, self.template_name, {'form': form, 'act_law': act_law})
 
 class ActLawDeleteView(View):
+    template_name = 'act_law/list.html' 
+
     def get(self, request, pk, *args, **kwargs):
         act_law = get_object_or_404(ActLaw, pk=pk)
-        act_law.delete()
+        return render(request, self.template_name, {'act_law': act_law})
+
+    def post(self, request, pk, *args, **kwargs):
+        act_law = get_object_or_404(ActLaw, pk=pk)
+        act_law.delete()  
         messages.success(request, "Object deleted successfully.")
         return redirect('actlaw_list')
