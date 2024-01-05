@@ -1,6 +1,6 @@
 # urls.py
 from django.urls import path
-from .views import CaseSubTypeDeleteView, CaseSubTypeView, CaseSubTypeCreateView, CaseSubTypeUpdateView,CaseStageCreateView,CaseStageUpdateView,CaseStageDeleteView, CaseStageView
+from .views import CaseSubTypeDeleteView, CaseSubTypeView, CaseSubTypeCreateView, CaseSubTypeUpdateView,CaseStageCreateView,CaseStageUpdateView,CaseStageDeleteView, CaseStageView, CaseTypeCreateView, CaseTypeDeleteView, CaseTypeUpdateView, CaseTypeView
 
 urlpatterns = [
     path('case_subtype', CaseSubTypeView.as_view(), name='case_subtype_list'),
@@ -11,4 +11,8 @@ urlpatterns = [
     path('case_stage/create/', CaseStageCreateView.as_view(), name='case_stage_create'),
     path('case_stage/<int:pk>/update/', CaseStageUpdateView.as_view(), name='case_stage_update'),
     path('case_stage/<int:pk>/delete/', CaseStageDeleteView.as_view(), name='case_stage_delete'),
+    path('case_type', CaseTypeView.as_view(), name='case_type_list'),
+    path('case_type/create/', CaseTypeCreateView.as_view(), name='case_type_create'),
+    path('case_type/<int:pk>/update/', CaseTypeUpdateView.as_view(), name='case_type_update'),
+    path('case_type/<int:pk>/delete/', CaseTypeDeleteView.as_view(), name='case_type_delete'),
 ]

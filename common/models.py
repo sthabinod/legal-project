@@ -20,3 +20,78 @@ class Designation(models.Model):
         # Soft delete by updating is_deleted field
         self.is_deleted = True
         self.save()
+        
+
+class JudgeCommittee(models.Model):
+    name = models.CharField(max_length=255)
+    designation = models.ForeignKey(Designation,on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='judge_committee')
+    status = models.CharField(max_length=20, choices=[
+        ('active', 'Active'),
+        ('inactive', 'Inactive'),
+    ], default='active')
+    is_deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+    
+    def delete(self, using=None, keep_parents=False):
+        # Soft delete by updating is_deleted field
+        self.is_deleted = True
+        self.save()
+       
+class DocumentType(models.Model):
+    name = models.CharField(max_length=255)
+    notes = models.TextField(blank=True, null=True)
+    status = models.CharField(max_length=20, choices=[
+        ('active', 'Active'),
+        ('inactive', 'Inactive'),
+    ], default='active')
+    is_deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+    
+    def delete(self, using=None, keep_parents=False):
+        # Soft delete by updating is_deleted field
+        self.is_deleted = True
+        self.save()
+        
+
+class FiscalYear(models.Model):
+    name = models.CharField(max_length=255)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    notes = models.TextField(blank=True, null=True)
+    status = models.CharField(max_length=20, choices=[
+        ('active', 'Active'),
+        ('inactive', 'Inactive'),
+    ], default='active')
+    is_deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+    
+    def delete(self, using=None, keep_parents=False):
+        # Soft delete by updating is_deleted field
+        self.is_deleted = True
+        self.save()
+        
+         
+class OfficeWard(models.Model):
+    ward_no = models.CharField(max_length=255)
+    ward_name= models.CharField(max_length=255)
+    status = models.CharField(max_length=20, choices=[
+        ('active', 'Active'),
+        ('inactive', 'Inactive'),
+    ], default='active')
+    is_deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.ward_name
+    
+    def delete(self, using=None, keep_parents=False):
+        # Soft delete by updating is_deleted field
+        self.is_deleted = True
+        self.save()
+        

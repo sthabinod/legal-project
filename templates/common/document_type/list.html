@@ -200,7 +200,7 @@
             <!-- Page Header -->
             <div class="page-header">
                 <div class="content-page-header">
-                    <h5>मामला चरण सेटअप</h5>
+                    <h5>कागजात प्रकार सेटअप</h5>
                     <div class="list-btn">
                         <ul class="filter-list">
                             <li>
@@ -230,15 +230,15 @@
                                     </thead>
                                     <tbody>
 
-                                        {% for case_stage in case_stage_list %}
+                                        {% for object in document_type_list %}
 											<tr>
 												<td>{{counter}}</td>
-												<td>{{case_stage.name}}</td>
-												<td>{{case_stage.notes}}</td>
-												<td><span class="badge bg-success-light text-success-light">{{case_stage.status}}</span></td>
+												<td>{{object.name}}</td>
+												<td>{{object.notes}}</td>
+												<td><span class="badge bg-success-light text-success-light">{{object.status}}</span></td>
 												<td class="d-flex align-items-center">
-													<a href="{% url 'case_stage_update' case_stage.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ case_stage.id }})"><i class="far fa-edit me-2"></i></a>
-													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ case_stage.id }})"><i class="far fa-trash-alt me-2"></i></a>
+													<a href="{% url 'document_type_update' object.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ object.id }})"><i class="far fa-edit me-2"></i></a>
+													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ object.id }})"><i class="far fa-trash-alt me-2"></i></a>
 												</td>
 											</tr>
 											{% endfor %}			
@@ -269,7 +269,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form method="post" action="{% url 'case_stage_create' %}">
+                        <form method="post" action="{% url 'document_type_create' %}">
 							{% csrf_token %}
 							{% for field in form %}
             <div class="mb-3">
@@ -381,7 +381,7 @@
         if (deleteId !== null) {
             // Make an AJAX request to soft delete the ActLaw
             $.ajax({
-                url: `/case/case_stage/${deleteId}/delete/`,
+                url: `/common/document_type/${deleteId}/delete/`,
                 method: 'POST',
                 data: { csrfmiddlewaretoken: '{{ csrf_token }}' },  // Include CSRF token
                 success: function (data) {
@@ -402,7 +402,7 @@
         var actLawId = $('#act_law_id').val();
         console.log(deleteId)
         $.ajax({
-            url: `/case/case_stage/${deleteId}/update/`,
+            url: `/common/document_type/${deleteId}/update/`,
             method: 'POST',
             data: formData,
             success: function (data) {
@@ -416,4 +416,4 @@
     };
 </script>
 
-{% endblock %}  
+{% endblock %}
