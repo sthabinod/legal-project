@@ -1,0 +1,166 @@
+{% load static %}
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-logo">
+            <a href="index.html">
+                <img src="{% static 'img/logo.png' %}" class="img-fluid logo" alt="">
+            </a>
+            <a href="index.html">
+                <img src="assets/img/logo-small.png" class="img-fluid logo-small" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="sidebar-inner slimscroll"  >
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+                <li class="submenu">
+                    <a href="index.html" class="active"><i class="fe fe-home"></i> <span> गृह पृष्ठ</span></a>
+                </li>
+            </ul>
+
+            <!-- Inventory -->
+            <ul>
+                <li class="menu-title"><span>मुख्य सेटअप</span></li>
+                <li class="submenu">
+                    <a href="#"><i class="fe fe-package"></i> <span>मुख्य सेटअप</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="office-setup.html">मुख्य सेटअप</a></li>
+                        <li><a href="category.html">गृह पृष्ठ सेटअप</a></li>
+                        <li><a href="units.html">प्रयोगकर्ता केस दर्ता</a></li>
+                        <li><a href="units.html">आर्थिक बर्ष सेटअप</a></li>
+                        <li><a href="units.html">वडा कार्यालय सेटअप</a></li>
+                        <li><a href="units.html">मामिला</a></li>
+                        <li><a href="units.html">मामिलाका प्रकारहरु</a></li>
+                        <li><a href="units.html">न्यायिक समितिको प्रकार</a></li>
+                        <li><a href="units.html">पद</a></li>
+                        <li><a href="units.html">मामिलाको स्थिति</a></li>
+                        <li><a href="units.html">न्यायिक समिति सदस्य</a></li>
+                        <li><a href="units.html">कागजात सेटअप</a></li>
+                        <li><a href="units.html">मेलमिलाप कर्ता</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="fe fe-package"></i> <span>सेवाग्राही</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="product-list.html">सेवाग्राही सेटअप</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="inventory.html"><i class="fe fe-user"></i> <span>विवाद/उजुरी</span></a>
+                </li>
+            </ul>
+            <!-- /Inventory -->
+
+            <!-- Sales -->
+            <ul>
+                <li class="menu-title"><span>दर्ता/चलानी</span></li>							
+                <li class="submenu"> 
+                    
+                    <a  href="#"><i class="fe fe-file"></i> <span>दर्ता/चलानी</span><span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a  href="invoices.html">दर्ता/चलानी सेटअप</a></li>
+                        <li><a  href="invoice-template.html">दर्ता</a></li>
+                        <li><a  href="invoice-template.html">चलानी</a></li>
+                        
+                    </ul>
+                </li>
+            </ul>
+            <!-- /Sales -->
+            
+            <!-- Membership) -->
+            <ul>
+                <li class="menu-title"><span>ऐन/कानुन संग्रह</span></li>
+                <li class="submenu">
+                    <a href="#"><i class="fe fe-book"></i> <span> ऐन/कानुन</span></a>
+                    <a href="#"><i class="fe fe-book"></i> <span> सूचना</span></a>
+                </li>
+            </ul>
+            <!-- /Membership) -->
+
+            <!-- Reports -->
+            <ul>
+                <li class="menu-title"><span>रिपोर्ट</span></li>								
+                <li>
+                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>राय किताब</span></a>
+                </li>
+                <li>
+                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>मिसिल अभिलेख किताब</span></a>
+                </li>
+                <li>
+                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>उजुरी र निवेदन डायरी किताब</span></a>
+                </li>
+                <li>
+                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>दर्ता किताब</span></a>
+                </li>
+                <li>
+                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>चलानी किताब</span></a>
+                </li>
+                <li>
+                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>तारिक किताब</span></a>
+                </li>
+                                            <li>
+                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>घटनाको विवरण</span></a>
+                </li>
+                <li>
+                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>निवेदनहरुको विवरण</span></a>
+                </li>
+            </ul>
+            <!-- /Reports -->
+
+            <!-- User Management -->
+            <ul>
+                <li class="menu-title"><span>User Management</span></li>
+                <li class="submenu">
+                    <a href="#"><i class="fe fe-user"></i> <span> Manage Users</span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="add-user.html">Add User</a></li>
+                        <li><a href="users.html">Users</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="roles-permission.html"><i class="fe fe-clipboard"></i> <span>Roles & Permission</span></a>
+                </li>
+                <li>
+                    <a href="delete-account-request.html"><i class="fe fe-trash-2"></i> <span>Delete Account Request</span></a>
+                </li>
+            </ul>
+            <!-- /User Management -->
+
+            <!-- Authentication -->
+            <ul>
+                <li class="submenu">
+                    <a href="#"><i class="fe fe-lock"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="login.html"> Login </a></li>
+                        <li><a href="register.html"> Register </a></li>
+                        <li><a href="forgot-password.html"> Forgot Password </a></li>
+                        <li><a href="lock-screen.html"> Lock Screen </a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- /Authentication -->
+
+            <!-- Pages -->
+            <ul>
+                <li class="menu-title"><span>अनुसूची</span></li>							
+                <li>
+                    <a href="profile.html"><i class="fe fe-user"></i> <span>अनुसूची १५</span></a>
+                </li>
+                <li>
+                    <a href="error-404.html"><i class="fe fe-x-square"></i> <span>अनुसूची १६</span></a>
+                </li>
+                <li>
+                    <a href="blank-page.html"><i class="fe fe-file"></i> <span>अनुसूची १७</span></a>
+                </li>
+                <li>
+                    <a href="maps-vector.html"><i class="fe fe-image"></i> <span>अनुसूची १८</span></a>
+                </li>
+            </ul>
+            <!-- /Pages -->
+
+        </div>
+    </div>
+</div>
+<!-- /Sidebar -->

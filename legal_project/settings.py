@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "act_law",
     "case",
-    "common"
+    "common",
+    "base"
 ]
 
 MIDDLEWARE = [

@@ -32,10 +32,13 @@
 		<link rel="stylesheet" href="{% static 'css/style.css'%}">
 	</head>
 	<body>
+		<div class="main-wrapper">
+		{% include "header.html" %}
+		{% include "sidebar.html" %}
 		{% block 'content' %}
-
 		
 		{% endblock 'content' %}
+		</div>
 		
 		<!-- jQuery -->
 		<script src="{% static 'js/jquery-3.6.3.min.js'%}"></script>
