@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "act_law",
     "case",
     "common",
-    "base"
+    "base",
+    "users"
 ]
 
 MIDDLEWARE = [

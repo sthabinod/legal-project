@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+{% block 'content' %} 
+			
+			<!-- Page Wrapper -->
+			<div class="page-wrapper">
+				<div class="content container-fluid">
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="content-page-header">
+							<h5>विवाद/उजुरी विवरण व्यवस्थापन गर्नुहोस्</h5>
+						</div>	
+					</div>
+					<!-- /Page Header -->				
+					<div class="row">
+						<div class="col-md-12">
+							<form action="#">
+								<div class="card-body">
+                                    <div class="form-group-item">
+										<h5 class="form-title">सेवाग्राहीको विवरण</h5>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="billing-btn">
+													<h5 class="form-title mb-0">प्रथम पक्ष - सेवाग्राही</h5>
+												</div>
+												<div class="form-group">
+													<label>सेवाग्राहीको नाम</label>
+													<input type="text" class="form-control" placeholder="Enter Name">
+												</div>
+                                            </div>
+											<div class="col-md-6">
+												<div class="billing-btn">
+													<h5 class="form-title mb-0">प्रतिपक्ष दोस्रो - सेवाग्राही</h5>
+												</div>
+												<div class="form-group">
+													<label>सेवाग्राहीको नाम</label>
+													<input type="text" class="form-control" placeholder="Enter Name">
+												</div>
+                                            </div>
+										</div>
+									</div>
+									<div class="form-group-customer">
+										<h5 class="form-title">मामिलाको विवरण</h5>
+										<div class="row">
+                                            <div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>मामिला</label>
+													<input type="text" class="form-control" placeholder="Enter Name">
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>मामिलाको प्रकार</label>
+													<input type="email" class="form-control" placeholder="Enter Email Address">
+												</div>											
+											</div>
+                                            <div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>मामिलाको चरण</label>
+													<input type="email" class="form-control" placeholder="Enter Email Address">
+												</div>											
+											</div>
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>ऐन</label>
+													<input type="text" id="mobile_code" class="form-control" placeholder="Phone Number" name="name">
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>फाइलिङ नम्बर</label>
+													<input type="text" class="form-control" placeholder="Enter Discount">
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>फाइलिङ मिति</label>
+													<input type="text" class="form-control" placeholder="Enter Company Name">
+												</div>											
+											</div>
+											<div class="col-lg-3 col-md-12 col-sm-12">
+												<div class="form-group">
+													<label>दर्ता नम्बर</label>
+													<div class="">
+														<label class="custom_radio me-3">
+															<input type="radio" name="payment" checked>
+															<span class="checkmark"></span> Debit
+														</label>
+														<label class="custom_radio">
+															<input type="radio" name="payment">
+															<span class="checkmark"></span> Credit
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>दर्ता मिति</label>
+													<input type="text" class="form-control" placeholder="Enter Discount">
+												</div>
+											</div>
+											<div class="col-lg-3 col-md-6 col-sm-12">
+												<div class="form-group">
+													<label>पहिलो तारिख</label>
+													<input type="text" class="form-control" placeholder="Enter Company Name">
+												</div>											
+											</div>
+											<div class="col-lg-3 col-md-12 col-sm-12">
+												<div class="form-group">
+													<label>बिषय</label>
+													<div class="">
+														<label class="custom_radio me-3">
+															<input type="radio" name="payment" checked>
+															<span class="checkmark"></span> Debit
+														</label>
+														<label class="custom_radio">
+															<input type="radio" name="payment">
+															<span class="checkmark"></span> Credit
+														</label>
+													</div>
+												</div>
+											</div>
+                                            <div class="col-lg-3 col-md-12 col-sm-12">
+												<div class="form-group">
+													<label>विवरण</label>
+													<div class="">
+														<label class="custom_radio me-3">
+															<input type="radio" name="payment" checked>
+															<span class="checkmark"></span> Debit
+														</label>
+														<label class="custom_radio">
+															<input type="radio" name="payment">
+															<span class="checkmark"></span> Credit
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="form-group-item">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="billing-btn">
+													<h5 class="form-title mb-0">न्यायिक समितिको विवरण</h5>
+												</div>
+												<div class="form-group">
+													<label>संयोजक</label>
+													<input type="text" class="form-control" placeholder="Enter Name">
+												</div>
+												<div class="form-group">
+													<label>सदस्य</label>
+													<input type="text" class="form-control" placeholder="Enter Address 1">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="billing-btn">
+													<h5 class="form-title mb-0">निवेदकको कागजातहरु</h5>
+												</div>
+												<div class="form-group">
+													<label>कागजातहरु</label>
+													<input type="text" class="form-control" placeholder="Enter Name">
+												</div>
+											</div>
+										</div>
+									</div>					
+									<div class="add-customer-btns text-end">
+										<a href="#" type="reset" class="btn customer-btn-cancel">रद्द गर्नुहोस्</a>
+										<a href="customers.html" type="submit" class="btn customer-btn-save">सुरक्षित गर्नुहोस</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Page Wrapper -->
+			
+{% endblock %}

@@ -1,0 +1,381 @@
+{% extends "base.html" %}
+{% block 'content' %}   
+	
+	
+	
+			
+			<!-- Page Wrapper -->
+			<div class="page-wrapper">
+				<div class="content container-fluid">
+				
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="content-page-header ">
+							<h5></h5>
+							<div class="list-btn">
+								<ul class="filter-list">
+									<li>
+										<a class="btn btn-filters w-auto popup-toggle"><span class="me-2"><i class="fe fe-filter"></i></span>फिल्टर </a>
+									</li>
+									<li class="">
+										<div class="dropdown dropdown-action">
+											<a href="#" class="btn-filters" data-bs-toggle="dropdown" aria-expanded="false"><span><i class="fe fe-download"></i></span></a>
+											<div class="dropdown-menu dropdown-menu-right">
+												<ul class="d-block">
+													<li>
+														<a class="d-flex align-items-center download-item" href="javascript:void(0);" download><i class="far fa-file-pdf me-2"></i>PDF</a>
+													</li>
+													<li>
+														<a class="d-flex align-items-center download-item" href="javascript:void(0);" download><i class="far fa-file-text me-2"></i>CVS</a>
+													</li>
+												</ul>
+											</div>
+										</div>														
+									</li>
+									<li>
+										<a class="btn btn-primary" href="manage-case-report.html"><i class="fa fa-plus-circle me-2" aria-hidden="true"></i>सिर्जना गर्नुहोस्</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+						
+					<!-- Search Filter -->
+					<div id="filter_inputs" class="card filter-card">
+						<div class="card-body pb-0">
+							<div class="row">
+								<div class="col-sm-6 col-md-3">
+									<div class="form-group">
+										<label>Name</label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-3">
+									<div class="form-group">
+										<label>Email</label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-3">
+									<div class="form-group">
+										<label>Phone</label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Search Filter -->
+
+					<!-- All Invoice -->
+					<div class="card invoices-tabs-card">
+						<div class="invoices-main-tabs">
+							<div class="row align-items-center">
+								<div class="col-lg-12">
+									<div class="invoices-tabs">
+										<ul>
+											<li><a href="case-report.html" class="active">सबै विवादहरु</a></li>
+											<li><a href="#">चालु विवाद</a></li>	
+											<li><a href="#">तामेली</a></li>
+                                            <li><a href="#">मेलमिलाप</a></li>	
+											<li><a href="#">वडा मेलमिलाप</a></li>
+                                            <li><a href="#">सम्पन्न</a></li>	
+											<li><a href="#">अपिल गरेको विवादहरु</a></li>
+                                            <li><a href="#">मुद्दा फिर्ता</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /All Invoice -->
+					
+					<!-- Table -->
+					<div class="row">
+						<div class="col-sm-12">
+							<div class=" card-table">
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-center table-hover datatable">
+											<thead class="thead-light">
+												<tr>
+													<th>सि.नं.</th>
+													<th>सेवाग्राही र मामिलाको विवरण</th>
+													<th>अदालतको विवरण</th>
+													<th>वादी र प्रतिवादी</th>
+													<th>अर्को तारिक</th>
+													<th>स्थिति</th>
+													<th>कार्य</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>वादीको नाम: <b>सन्देस चौधरी</b> <br/>प्रतिवादीको नाम: <b>हरि बहादुर सापकोटा, लुटन दोम</b><br/>मामिला: <b>स्थानीय सरकार संचालन ऐन २०७४को ४७ (१)</b></td>
+													<td>अदालत: <b>abc</b> <br/> अदालत नं: <b>abc</b><br/> न्यायधिशको नाम: <b>abc</b></td>
+													<td><b>सन्देस चौधरी <br/>VS<br/>हरि बहादुर सापकोटा, लुटन दोम</b> <br/>मुद्दा नं. : <b>101</b><br/>ऐन : <b>४७ १ (क)</b></td>
+													<td>२०८०-०५-१९</td>
+													<td>सम्पन्न भएको</td>
+                                                    <td class="d-flex align-items-center">
+														<a href="{% url 'case_report_detail' %}" class="btn bg-success-light me-2"><i class="fa fa-eye me-1"></i>विवरण</a>
+														<a class="btn bg-warning-light me-2" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add_appeal"><i class="fa fa-plus-circle me-2" aria-hidden="true"></i>पुनरावेदन</a>
+                                                        <div class="dropdown dropdown-action">
+															<a href="#" class="btn-action-icon" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>
+															<div class="dropdown-menu dropdown-menu-right" style="">
+																<ul>
+																	<li>
+																		<a class="dropdown-item" href="edit-quotations.html"><i class="far fa-edit me-2"></i>अनुसूची २</a>
+																	</li>
+																	<li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची ३</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची ४ (निवेदन -पत्र)</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची ४.१ (दाबि फिर्ता गरी पाउँ)</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची ६ (तारेख भरपाई)</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची ७ (तारिखको पर्चा)</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची ८</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची ९(क) (म्याद सूचना)</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची ९(ख)</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची १० (न्यायिक समितिको निर्णय)</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची ११</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची १२</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची १३</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची १४</a>
+																	</li>
+                                                                    <li>
+																		<a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#delete_modal"><i class="far fa-trash-alt me-2"></i>अनुसूची १९ (तारिक/मेलमिलापमा रहेका उजुरीहरु)</a>
+																	</li>
+																</ul>
+															</div>
+														</div>
+                                                    </td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Table -->
+
+				</div>
+			</div>
+			<!-- /Page Wrapper -->
+
+			<!-- Add Asset -->
+			<div class="toggle-sidebar">
+				<div class="sidebar-layout-filter">
+					<div class="sidebar-header">
+						<h5>फिल्टर गर्नुहोस्</h5>
+						<a href="#" class="sidebar-closes"><i class="fa-regular fa-circle-xmark"></i></a>
+					</div>
+					<div class="sidebar-body">						
+						<form action="#" autocomplete="off">
+							<!-- Customer -->
+							<div class="accordion" id="accordionMain1">
+								<div class="card-header-new" id="headingOne">
+									<h6 class="filter-title">
+									<a href="javascript:void(0);" class="w-100" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										 सेवाग्राहीको नाम	
+										<span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+									</a> 
+									</h6>
+								</div>
+							
+								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"  data-bs-parent="#accordionExample1">
+									<div class="card-body-chat">
+										<div class="row">
+											<div class="col-md-12">
+												<div id="checkBoxes1">
+													<div class="form-custom">														
+														<input type="text" class="form-control" id="member_search1" placeholder="सेवाग्राहीको नाम यहाँ खोज्नुहोस्">
+														<span><img src="assets/img/icons/search.svg" alt="img"></span>
+													</div>
+													<div class="selectBox-cont">
+														<label class="custom_check w-100">
+															<input type="checkbox" name="username">
+															<span class="checkmark"></span>  Brian Johnson
+														</label>
+														<label class="custom_check w-100">
+															<input type="checkbox" name="username">
+															<span class="checkmark"></span> John Blair
+														</label>
+														<!-- View All -->
+														<div class="view-content">
+															<div class="viewall-One">	
+																<label class="custom_check w-100">
+																	<input type="checkbox" name="username">
+																	<span class="checkmark"></span> Barbara Moore
+																</label>
+																<label class="custom_check w-100">
+																	<input type="checkbox" name="username">
+																	<span class="checkmark"></span> Hendry Evan
+																</label>
+																<label class="custom_check w-100">
+																	<input type="checkbox" name="username">
+																	<span class="checkmark"></span> Richard Miles
+																</label>
+															</div>
+															<div class="view-all">
+																<a href="javascript:void(0);" class="viewall-button-One"><span class="me-2">सबै हेर्नुहोस्</span><span><i class="fa fa-circle-chevron-down"></i></span></a>
+															</div>
+														</div>
+														<!-- /View All -->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /Customer -->
+
+							<!-- By Status -->
+							<div class="accordion" id="accordionMain3">
+								<div class="card-header-new" id="headingThree">
+									<h6 class="filter-title">
+									<a href="javascript:void(0);" class="w-100 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+										 मामिलाको प्रकार	
+										<span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+									</a> 
+									</h6>
+								</div>
+							
+								<div id="collapseThree" class="collapse_show" aria-labelledby="headingThree"  data-bs-parent="#accordionExample3">
+									<div class="card-body-chat">
+										<div id="checkBoxes2">
+											<div class="selectBox-cont">
+												<label class="custom_check w-100">
+													<input type="checkbox" name="bystatus">
+													<span class="checkmark"></span> AB1
+												</label>
+												<label class="custom_check w-100">
+													<input type="checkbox" name="bystatus">
+													<span class="checkmark"></span>  AB2
+												</label>
+											</div>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<!-- /By Status -->
+
+							<!-- Category -->
+							<div class="accordion accordion-last" id="accordionMain4">
+								<div class="card-header-new" id="headingFour">
+									<h6 class="filter-title">
+									<a href="javascript:void(0);" class="w-100 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+										 मुद्दा नं.	
+										<span class="float-end"><i class="fa-solid fa-chevron-down"></i></span>
+									</a> 
+									</h6>
+								</div>
+							
+								<div id="collapseFour" class="collapse_show" aria-labelledby="headingFour"  data-bs-parent="#accordionExample4">
+									<div class="card-body-chat">
+										<div id="checkBoxes3">
+											<div class="selectBox-cont">
+                                                <div class="form-custom">														
+												    <input type="text" class="form-control" id="case_num_search" placeholder="मुद्दा नं. यहाँ खोज्नुहोस्">
+												    <span><img src="assets/img/icons/search.svg" alt="img"></span>
+											    </div>
+											</div>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<!-- /Category -->
+
+							<button type="submit" class="d-inline-flex align-items-center justify-content-center btn w-100 btn-primary">
+								<span><img src="assets/img/icons/chart.svg" class="me-2" alt="Generate report"></span>खोज्नुहोस्
+							</button>
+						</form>
+						
+					</div>
+				</div>
+			</div>
+			<!-- /Add Asset -->
+
+			<!-- Add Aappeal Modal -->
+			<div class="modal custom-modal fade" id="add_appeal" role="dialog">
+				<div class="modal-dialog modal-dialog-centered modal-md">
+					<div class="modal-content">
+						<div class="modal-header border-0 pb-0">
+							<div class="form-header modal-header-title text-start mb-0">
+								<h4 class="mb-0">पुनरावेदन</h4>
+							</div>
+							<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+								<span class="align-center" aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-lg-12 col-sm-12">
+									<div class="form-group">
+										<label> पुनरावेदन परेको मिति</label>
+										<input type="date" class="form-control">
+									</div>
+								</div>
+								<div class="col-lg-12 col-sm-12">
+									<div class="form-group">
+										<label>पुनरावेदन सुन्ने अदालतमा पठाएको मिति</label>
+										<input type="date" class="form-control">
+									</div>
+								</div>
+								<div class="col-lg-12 col-sm-12">
+									<div class="form-group">
+										<label>दर्ता गर्ने अधिकारीको नामथर</label>
+										<input type="text" class="form-control" placeholder="दर्ता गर्ने अधिकारीको नामथर प्रविष्ट गर्नुहोस्">
+									</div>
+								</div>
+								<div class="col-lg-12 col-sm-12">
+									<div class="form-group mb-0">
+										<label>मिसिल फिर्ता मिति</label>
+										<input type="date" class="form-control">
+									</div>
+								</div>
+								<div class="col-lg-12 col-sm-12">
+									<div class="form-group mb-0">
+										<label>कैफियत</label>
+										<input type="text" class="form-control" placeholder="कैफियत प्रविष्ट गर्नुहोस्">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</a>
+							<a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">थप्नुहोस्</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Add Aappeal Modal -->
+
+
+		
+{% endblock %}

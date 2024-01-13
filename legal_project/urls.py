@@ -24,6 +24,7 @@ urlpatterns = [
     path("",include("base.urls")),
     path("act_law/",include("act_law.urls")),
     path("case/",include("case.urls")),
+    path("users/",include("users.urls")),
     path("common/",include("common.urls")),
 ]
 

@@ -179,3 +179,33 @@ class CaseTypeDeleteView(View):
         case_type.delete()  
         messages.success(request, "Object deleted successfully.")
         return redirect('case_type_list')
+    
+    
+class CaseReportView(View):
+    template_name = 'case/report.html'
+
+    def get(self, request, *args, **kwargs):
+        # case_stage_list = CaseStage.objects.filter(is_deleted=False)
+        # form = CaseStageForm()
+        # return render(request, self.template_name, {"case_stage_list": case_stage_list,'form': form})
+        return render(request, self.template_name)
+    
+class CaseReportDetailView(View):
+    template_name = 'case/report_detail.html'
+
+    def get(self, request, *args, **kwargs):
+        # case_stage_list = CaseStage.objects.filter(is_deleted=False)
+        # form = CaseStageForm()
+        # return render(request, self.template_name, {"case_stage_list": case_stage_list,'form': form})
+        return render(request, self.template_name)
+    
+class ManageCaseReportView(View):
+    template_name = 'case/manage_report.html'
+
+    def get(self, request, *args, **kwargs):
+        # case_stage_list = CaseStage.objects.filter(is_deleted=False)
+        # form = CaseStageForm()
+        # return render(request, self.template_name, {"case_stage_list": case_stage_list,'form': form})
+        return render(request, self.template_name)
+    
+    
