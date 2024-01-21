@@ -46,7 +46,7 @@
 												<td>{{case_subtype.name}}</td>
 												<td>{{case_subtype.type}}</td>		
 												<td>{{case_subtype.notes}}</td>
-												<td><span class="badge bg-success-light text-success-light">{{case_subtype.status}}</span></td>
+												<td><span class="badge {% if case_subtype.status == 'active' %}bg-success-light text-success-light{% elif case_subtype.status == 'inactive' %}bg-danger-light text-danger-light{% endif %}">{{case_subtype.status}}</span></td>
 												<td class="d-flex align-items-center">
 													<a href="{% url 'case_subtype_update' case_subtype.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ case_subtype.id }})"><i class="far fa-edit me-2"></i></a>
 													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ case_subtype.id }})"><i class="far fa-trash-alt me-2"></i></a>

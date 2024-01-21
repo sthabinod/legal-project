@@ -32,7 +32,7 @@
                                         <tr>
                                            <th>#</th>
                                            <th>नाम</th>
-                                           <th>नोटहरू</th>
+                                            <th>नोटहरू</th>
                                            <th>स्थिति</th>
                                            <th class="text-end">कार्यहरू</th>
                                         </tr>
@@ -44,7 +44,7 @@
 												<td>{{counter}}</td>
 												<td>{{designation.name}}</td>
 												<td>{{designation.notes}}</td>
-												<td><span class="badge bg-success-light text-success-light">{{designation.status}}</span></td>
+												<td><span class="badge {% if designation.status == 'active' %}bg-success-light text-success-light{% elif designation.status == 'inactive' %}bg-danger-light text-danger-light{% endif %}">{{designation.status}}</span></td>
 												<td class="d-flex align-items-center">
 													<a href="{% url 'designation_update' designation.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ designation.id }})"><i class="far fa-edit me-2"></i></a>
 													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ designation.id }})"><i class="far fa-trash-alt me-2"></i></a>
