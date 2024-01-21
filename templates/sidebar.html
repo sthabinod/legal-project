@@ -1,10 +1,11 @@
 {% load static %}
 
+
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
         <div class="sidebar-logo">
-            <a href="index.html">
+            <a href="{% url 'home_page' %}">
                 <img src="{% static 'img/logo.png' %}" class="img-fluid logo" alt="">
             </a>
             <a href="index.html">
@@ -15,8 +16,8 @@
     <div class="sidebar-inner slimscroll"  >
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
-                <li class="submenu">
-                    <a href="index.html" class="active"><i class="fe fe-home"></i> <span> गृह पृष्ठ</span></a>
+                <li class="">
+                    <a href="{% url 'home_page' %}" class="{% if request.path == '/' %}active{% endif %}"><i class="fe fe-home"></i> <span> गृह पृष्ठ</span></a>
                 </li>
             </ul>
 
@@ -28,23 +29,31 @@
                     <ul>
                         <li><a href="office-setup.html">मुख्य सेटअप</a></li>
                         <li><a href="category.html">गृह पृष्ठ सेटअप</a></li>
-                        <li><a href="units.html">प्रयोगकर्ता केस दर्ता</a></li>
-                        <li><a href="units.html">आर्थिक बर्ष सेटअप</a></li>
+                        <li><a href="{% url 'case_report_list' %}" class="{% if request.path == '/case/case_report/' %}active{% endif %}">मामिला</a></li>
+                        <li><a href="{% url 'case_type_list' %}" class="{% if request.path == '/case/case_type/' %}active{% endif %}">मामिलाका प्रकारहरु</a></li>
+                        <li><a href="{% url 'case_stage_list' %}" class="{% if request.path == '/case/case_stage/' %}active{% endif %}">मामला चरण</a></li>
+                        <li><a href="{% url 'case_subtype_list' %}" class="{% if request.path == '/case/case_subtype/' %}active{% endif %}">‌मामला उप-प्रकार</a></li>
+                        <li><a href="{% url 'court_type_list' %}" class="{% if request.path == '/act_law/court_type/' %}active{% endif %}">न्यायिक समितिको प्रकार</a></li>
+                        <li><a href="{% url 'designation_list' %}" class="{% if request.path == '/common/designation/' %}active{% endif %}">पद</a></li>
+                        <li><a href="{% url 'document_type_list' %}" class="{% if request.path == '/common/document_type/' %}active{% endif %}"> ‌कागजात प्रकार</a></li>
+                        <li><a href="{% url 'judge_committee_list' %}"class="{% if request.path == '/common/judge_committee/' %}active{% endif %}"> ‌न्यायिक समितिको सदस्यहरु </a></li>
+                        <li><a href="{% url 'office_ward_list' %}" class="{% if request.path == '/common/office_ward/' %}active{% endif %}"> ‌वडा कार्यालय </a></li> 
+                        <li><a href="{% url 'fiscal_year_list' %}" class="{% if request.path == '/common/fiscal_year/' %}active{% endif %}">‌वित्तीय वर्ष </a></li> 
                         <li><a href="units.html">वडा कार्यालय सेटअप</a></li>
-                        <li><a href="units.html">मामिला</a></li>
-                        <li><a href="units.html">मामिलाका प्रकारहरु</a></li>
-                        <li><a href="units.html">न्यायिक समितिको प्रकार</a></li>
-                        <li><a href="units.html">पद</a></li>
                         <li><a href="units.html">मामिलाको स्थिति</a></li>
                         <li><a href="units.html">न्यायिक समिति सदस्य</a></li>
                         <li><a href="units.html">कागजात सेटअप</a></li>
                         <li><a href="units.html">मेलमिलाप कर्ता</a></li>
+                        <li><a href="units.html">प्रयोगकर्ता केस दर्ता</a></li>
+                        <li><a href="units.html">आर्थिक बर्ष सेटअप</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
                     <a href="#"><i class="fe fe-package"></i> <span>सेवाग्राही</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="product-list.html">सेवाग्राही सेटअप</a></li>
+                        <li><a href="{% url 'manage_consumer' %}" class="{% if request.path == '/consumer/manage_consumer/' %}active{% endif %}">सेवाग्राही सेटअप</a></li>
+                        <li><a href="{% url 'consumer_list' %}" class="{% if request.path == '/consumer/' %}active{% endif %}">‌सेवाग्राहीहरु </a></li>
+                        
                     </ul>
                 </li>
                 <li>
@@ -72,8 +81,9 @@
             <!-- Membership) -->
             <ul>
                 <li class="menu-title"><span>ऐन/कानुन संग्रह</span></li>
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-book"></i> <span> ऐन/कानुन</span></a>
+                <li class="">  
+                    
+                    <a href="{% url 'actlaw_list' %}" class="{% if request.path == '/act_law/' %}active{% endif %}"><i class="fe fe-book"></i> <span>ऐन/कानुन</a>
                     <a href="#"><i class="fe fe-book"></i> <span> सूचना</span></a>
                 </li>
             </ul>

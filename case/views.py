@@ -201,7 +201,7 @@ class CaseReportDetailView(View):
     
 class ManageCaseReportView(View):
     template_name = 'case/manage_report.html'
-
+                                            
     def get(self, request, *args, **kwargs):
         # case_stage_list = CaseStage.objects.filter(is_deleted=False)
         # form = CaseStageForm()
