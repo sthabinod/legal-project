@@ -68,24 +68,27 @@
 												</tr>
 											</thead>
 											<tbody>
+												{% for object in consumer_list %}
+
 												<tr>
 													<td>1</td>
 													<td>
 														<h2 class="table-avatar">
 															<a href="profile.html" class="avatar avatar-md me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-02.jpg" alt="User Image"></a>
-															<a href="profile.html">John Smith <span>john@example.com</span></a>
+															<a href="profile.html">{{object.full_name}} <span>{{object.email_address}}</span></a>
 														</h2>
 													</td>
-													<td>+1 989-438-3131</td>
-													<td>$4,220</td>
-													<td>2</td>
-													<td>19 Dec 2022, 06:12 PM</td>
-													<td><span class="badge badge-pill bg-success-light">Active</span></td>
+													<td>{{object.father_name}}</td>
+													<td>{{object.mobile_number}}</td>
+													<td>{{object.citizenship_no}}</td>
+													<td>{{object.citizenship_issue_date}}</td>
+													<td><span class="badge badge-pill bg-success-light">{{object.gender}}</span></td>
 													<td class="d-flex align-items-center">
-														<a href="manage-consumer.html" class="btn-action-icon me-2"><i class="far fa-edit me-2"></i></a>
+														<a href="manage-consumer.html" 	class="btn-action-icon me-2"><i class="far fa-edit me-2"></i></a>
                                                         <a href="#" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_consumer"><i class="far fa-trash-alt me-2"></i></a>
 													</td>
 												</tr>
+												{% endfor %}
 											</tbody>
 										</table>
 									</div>

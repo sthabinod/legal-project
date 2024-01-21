@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     "case",
     "common",
     "base",
-    "users"
+    "users",
+    "consumer",
+    "nepali_datetime_field"
 ]
 
 MIDDLEWARE = [

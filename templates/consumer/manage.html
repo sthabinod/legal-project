@@ -9,10 +9,62 @@
 							<h5>सेवाग्राही थप्नुहोस्</h5>
 						</div>	
 					</div>
+
+					{% if ce %}
+    <div class="alert alert-danger">
+        <strong>Error in Consumer Form:</strong>
+        <ul>
+            {% for field, errors in ce.items %}
+                <li>{{ field }}:
+                    <ul>
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+{% if pe %}
+    <div class="alert alert-danger">
+        <strong>Error in Permanent Address Form:</strong>
+        <ul>
+            {% for field, errors in pe.items %}
+                <li>{{ field }}:
+                    <ul>
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+{% if te %}
+    <div class="alert alert-danger">
+        <strong>Error in Temporary Address Form:</strong>
+        <ul>
+            {% for field, errors in te.items %}
+                <li>{{ field }}:
+                    <ul>
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
 					<!-- /Page Header -->				
 					<div class="row">
 						<div class="col-md-12">
-							<form action="#">
+							<form id="consumerForm" action="{% url 'manage_consumer' %}" method="POST">
+								{% csrf_token %}
 								<div class="card-body">
 									<div class="form-group-item">
 										<h5 class="form-title">आधारभूत विवरणहरू</h5>
@@ -37,86 +89,70 @@
 											<div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>पुरा नाम</label>
-													<input type="text" class="form-control" placeholder="पुरा नाम प्रविष्ट गर्नुहोस्">
+													{{ form.full_name }}
 												</div>
+											
 											</div>
+											
 											<div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>जन्म मिति</label>
-													<input type="date" class="form-control">
+													{{ form.birth_date }}
 												</div>											
 											</div>
 											<div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>उमेर</label>
-													<input type="text" class="form-control" placeholder="उमेर प्रविष्ट गर्नुहोस्">
+													{{ form.age }}
 												</div>
 											</div>
 											<div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>लिङ्ग</label>
-													<select class="select">
-														<option>पुरुष</option>
-														<option>महिला</option>
-														<option>अरू</option>
-													</select>
+													{{form.gender}}
 												</div>
 											</div>
 											<div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>ई-मेल</label>
-													<input type="email" class="form-control" placeholder="ई-मेल प्रविष्ट गर्नुहोस्">
+													{{form.email_address}}
 												</div>
 											</div>
 											<div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>मोबाइल नम्बर</label>
-													<input type="number" class="form-control" placeholder="मोबाइल नम्बर प्रविष्ट गर्नुहोस्">
+													{{form.mobile_number}}
 												</div>											
 											</div>
                                             <div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>नागरिकता नम्बर</label>
-													<input type="text" class="form-control" placeholder="नागरिकता नम्बर प्रविष्ट गर्नुहोस्">
+													{{form.citizenship_no}}
 												</div>											
 											</div>
                                             <div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>नागरिकता जारि जिल्ला</label>
-                                                    <select class="select">
-                                                        <option>ताप्लेजुङ</option>
-														<option>पाँचथर</option>
-														<option>इलाम</option>
-                                                        <option>झापा</option>
-														<option>मोरङ</option>
-														<option>सुनसरी</option>
-                                                        <option>उदयपुर</option>
-														<option>धनकुटा</option>
-														<option>तेह्रथुम</option>
-                                                        <option>सङ्खुवासभा</option>
-														<option>भोजपुर</option>
-														<option>खोटाङ</option>
-                                                        <option>ओखलढुङ्गा</option>
-														<option>सोलुखुम्बु</option>
-													</select>
+													{{form.citizenship_issue_district}}
 												</div>											
 											</div>
                                             <div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>नागरिकता जारि मिति</label>
-													<input type="date" class="form-control">
-												</div>											
+													{{form.citizenship_issue_date}}
+												</div>	
+																									
 											</div>
                                             <div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>हजुरबाबूको नाम</label>
-													<input type="text" class="form-control" placeholder="हजुरबाबूको नाम प्रविष्ट गर्नुहोस्">
+													{{form.grandfather_name}}
 												</div>											
 											</div>
                                             <div class="col-lg-4 col-md-6 col-sm-12">
 												<div class="form-group">
 													<label>बाबुको नाम</label>
-													<input type="text" class="form-control" placeholder="बाबुको नाम प्रविष्ट गर्नुहोस्">
+													{{form.father_name}}
 												</div>											
 											</div>
 										</div>
@@ -128,113 +164,52 @@
 													<h5 class="form-title">स्थायी ठेगाना</h5>
 												</div>
 												<div class="form-group">
+													
+
 													<label>स्थायी प्रदेश</label>
-                                                    <select class="select">
-                                                        <option>कोशी प्रदेश</option>
-														<option>मधेश प्रदेश</option>
-														<option>बागमती प्रदेश</option>
-                                                        <option>गण्डकी प्रदेश</option>
-														<option>लुम्बिनी प्रदेश</option>
-														<option>सुदूरपश्चिम प्रदेश</option>
-                                                        <option>कर्णाली प्रदेश</option>
-													</select>
+
+                                                    {{permanent_form.state}}
 												</div>
 												<div class="form-group">
 													<label>स्थायी जिल्ला</label>
-                                                    <select class="select">
-                                                        <option>ताप्लेजुङ</option>
-														<option>पाँचथर</option>
-														<option>इलाम</option>
-                                                        <option>झापा</option>
-														<option>मोरङ</option>
-														<option>सुनसरी</option>
-                                                        <option>उदयपुर</option>
-														<option>धनकुटा</option>
-														<option>तेह्रथुम</option>
-                                                        <option>सङ्खुवासभा</option>
-														<option>भोजपुर</option>
-														<option>खोटाङ</option>
-                                                        <option>ओखलढुङ्गा</option>
-														<option>सोलुखुम्बु</option>
-													</select>
+                                                    {{permanent_form.district}}
 												</div>
 												<div class="form-group">
 													<label>स्थायी पालिका</label>
-                                                    <select class="select">
-                                                        <option>उर्लाबारी नगरपालिका</option>
-														<option>बेलबारी नगरपालिका</option>
-														<option>लेटाङ नगरपालिका</option>
-													</select>
+													{{permanent_form.municipality}}
 												</div>
                                                 <div class="form-group">
 													<label>स्थायी वडा</label>
-                                                    <select class="select">
-                                                        <option>१</option>
-														<option>२</option>
-														<option>३</option>
-														<option>४</option>
-													</select>
+                                                   {{permanent_form.ward}}
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="billing-btn">
 													<h5 class="form-title mb-0">अस्थायी ठेगाना</h5>
-													<a href="#" class="btn btn-primary">स्थायी ठेगानाबाट प्रतिलिपि</a>
+													<a href="#" class="btn btn-primary" id="copyPermanentToTemporaryBtn">स्थायी ठेगानाबाट प्रतिलिपि</a>
 												</div>
                                                 <div class="form-group">
 													<label>अस्थायी प्रदेश</label>
-                                                    <select class="select">
-                                                        <option>कोशी प्रदेश</option>
-														<option>मधेश प्रदेश</option>
-														<option>बागमती प्रदेश</option>
-                                                        <option>गण्डकी प्रदेश</option>
-														<option>लुम्बिनी प्रदेश</option>
-														<option>सुदूरपश्चिम प्रदेश</option>
-                                                        <option>कर्णाली प्रदेश</option>
-													</select>
+                                                    {{temporary_form.state}}
 												</div>
 												<div class="form-group">
 													<label>अस्थायी जिल्ला</label>
-                                                    <select class="select">
-                                                        <option>ताप्लेजुङ</option>
-														<option>पाँचथर</option>
-														<option>इलाम</option>
-                                                        <option>झापा</option>
-														<option>मोरङ</option>
-														<option>सुनसरी</option>
-                                                        <option>उदयपुर</option>
-														<option>धनकुटा</option>
-														<option>तेह्रथुम</option>
-                                                        <option>सङ्खुवासभा</option>
-														<option>भोजपुर</option>
-														<option>खोटाङ</option>
-                                                        <option>ओखलढुङ्गा</option>
-														<option>सोलुखुम्बु</option>
-													</select>
+                                                    {{temporary_form.district}}
 												</div>
 												<div class="form-group">
 													<label>अस्थायी पालिका</label>
-                                                    <select class="select">
-                                                        <option>उर्लाबारी नगरपालिका</option>
-														<option>बेलबारी नगरपालिका</option>
-														<option>लेटाङ नगरपालिका</option>
-													</select>
+                                                    {{temporary_form.municipality}}
 												</div>
-                                                <div class="form-group">
+                                                <div class="form-group" id="temporary_ward">
 													<label>अस्थायी वडा</label>
-                                                    <select class="select">
-                                                        <option>१</option>
-														<option>२</option>
-														<option>३</option>
-														<option>४</option>
-													</select>
+													{{temporary_form.ward}}
 												</div>
 											</div>
 										</div>
 									</div>
 									<div class="add-customer-btns text-end">
 										<a href="#" type="reset" class="btn customer-btn-cancel">रद्द गर्नुहोस्</a>
-										<a href="customers.html" type="submit" class="btn customer-btn-save">परिवर्तनहरू सुरक्षित गर्नुहोस</a>
+										<button type="button" class="btn customer-btn-save" id="saveChangesBtn">परिवर्तनहरू सुरक्षित गर्नुहोस</button>
 									</div>
 								</div>
 							</form>
