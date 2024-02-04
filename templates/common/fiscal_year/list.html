@@ -47,7 +47,7 @@
                                                 <td>{{object.start_date}}</td>
                                                 <td>{{object.end_date}}</td>
 												<td>{{object.notes}}</td>
-												<td><span class="badge {% if object.status == 'active' %}bg-success-light text-success-light{% elif object.status == 'inactive' %}bg-danger-light text-danger-light{% endif %}">{{object.status}}</span></td>
+												<td><span class="badge {% if object.status == 'सक्रिय' %}bg-success-light text-success-light{% elif object.status == 'निष्क्रिय' %}bg-danger-light text-danger-light{% endif %}">{{object.status}}</span></td>
 												<td class="d-flex align-items-center">
 													<a href="{% url 'fiscal_year_update' object.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ object.id }})"><i class="far fa-edit me-2"></i></a>
 													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ object.id }})"><i class="far fa-trash-alt me-2"></i></a>

@@ -15,9 +15,14 @@ class DesignationForm(forms.ModelForm):
             field.widget.attrs['id'] = 'id_' + field_name
             field.label_from_instance = lambda obj: obj.label_tag(attrs={'for': 'id_' + field_name})
             field.widget.attrs['placeholder'] = f"Enter {field.label.lower()}"
-
-        self.fields['status'].widget.attrs['class'] = 'select'
-        self.fields['status'].widget.attrs['placeholder'] = 'Select status'
+            if field_name == 'name':
+                field.label = 'नाम'
+                field.widget.attrs['placeholder'] = 'नाम प्रविष्ट गर्नुहोस्'
+            if field_name == 'notes':
+                field.label = 'नोटहरू'
+                field.widget.attrs['placeholder'] = 'नोटहरू प्रविष्ट गर्नुहोस्'
+            if field_name == 'status':
+                field.label = 'स्थिति'
 
 class DocumentTypeForm(forms.ModelForm):
     class Meta:
@@ -33,9 +38,14 @@ class DocumentTypeForm(forms.ModelForm):
             field.label_from_instance = lambda obj: obj.label_tag(attrs={'for': 'id_' + field_name})
             field.widget.attrs['placeholder'] = f"Enter {field.label.lower()}"
 
-        self.fields['status'].widget.attrs['class'] = 'select'
-        self.fields['status'].widget.attrs['placeholder'] = 'Select status'
-        
+            if field_name == 'name':
+                field.label = 'नाम'
+                field.widget.attrs['placeholder'] = 'नाम प्रविष्ट गर्नुहोस्'
+            if field_name == 'notes':
+                field.label = 'नोटहरू'
+                field.widget.attrs['placeholder'] = 'नोटहरू प्रविष्ट गर्नुहोस्'
+            if field_name == 'status':
+                field.label = 'स्थिति'
 class FiscalYearForm(forms.ModelForm):
     class Meta:
         model = FiscalYear
@@ -54,8 +64,20 @@ class FiscalYearForm(forms.ModelForm):
             field.label_from_instance = lambda obj: obj.label_tag(attrs={'for': 'id_' + field_name})
             field.widget.attrs['placeholder'] = f"Enter {field.label.lower()}"
 
-        self.fields['status'].widget.attrs['class'] = 'select'
-        self.fields['status'].widget.attrs['placeholder'] = 'Select status'
+            if field_name == 'name':
+                field.label = 'नाम'
+                field.widget.attrs['placeholder'] = 'नाम प्रविष्ट गर्नुहोस्'    
+            if field_name == 'start_date':
+                field.label = 'नोटहरू'
+                field.widget.attrs['placeholder'] = 'नोटहरू प्रविष्ट गर्नुहोस्'
+            if field_name == 'end_date':
+                field.label = 'सुरु मिति'
+                field.widget.attrs['placeholder'] = 'सुरु मिति प्रविष्ट गर्नुहोस्'
+            if field_name == 'notes':
+                field.label = 'अन्तिम मिति'
+                field.widget.attrs['placeholder'] = 'अन्तिम मिति प्रविष्ट गर्नुहोस्'
+            if field_name == 'status':
+                field.label = 'स्थिति'
         
 class JudgeCommitteeForm(forms.ModelForm):
     class Meta:
@@ -69,20 +91,15 @@ class JudgeCommitteeForm(forms.ModelForm):
             field.widget.attrs['class'] = 'form-control'
             field.widget.attrs['id'] = 'id_' + field_name
             field.widget.attrs['placeholder'] = f"Enter {field.label.lower()}"
+            
+            if field_name == 'name':
+                field.label = 'नाम'
+                field.widget.attrs['placeholder'] = 'नाम प्रविष्ट गर्नुहोस्'
+          
+            if field_name == 'status':
+                field.label = 'स्थिति'
 
-        if 'designation' in self.fields:
-            designation_field = self.fields['designation']
-            if hasattr(designation_field, 'queryset'):
-                designation_field.widget.attrs['class'] = 'select'
-                designation_field.widget.attrs['placeholder'] = 'Select designation'
-                designation_field.label_from_instance = lambda obj: obj.name  # Adjust based on your Designation model
-
-        if 'status' in self.fields:
-            status_field = self.fields['status']
-            if hasattr(status_field, 'queryset'):
-                status_field.widget.attrs['class'] = 'select'
-                status_field.widget.attrs['placeholder'] = 'Select status'
-                status_field.label_from_instance = lambda obj: obj.name  
+        
 
 class OfficeWardForm(forms.ModelForm):
     class Meta:
@@ -97,7 +114,13 @@ class OfficeWardForm(forms.ModelForm):
             field.widget.attrs['id'] = 'id_' + field_name
             field.label_from_instance = lambda obj: obj.label_tag(attrs={'for': 'id_' + field_name})
             field.widget.attrs['placeholder'] = f"Enter {field.label.lower()}"
+            if field_name == 'ward_no':
+                field.label = 'वडा नं'
+                field.widget.attrs['placeholder'] = 'वडा नं प्रविष्ट गर्नुहोस्'
+            if field_name == 'ward_name':
+                field.label = 'वडा कार्यलयको नाम'
+                field.widget.attrs['placeholder'] = 'वडा कार्यलयको नाम प्रविष्ट गर्नुहोस्'
+            if field_name == 'status':
+                field.label = 'स्थिति'
 
-        self.fields['status'].widget.attrs['class'] = 'select'
-        self.fields['status'].widget.attrs['placeholder'] = 'Select status'
 

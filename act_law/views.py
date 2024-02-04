@@ -100,16 +100,18 @@ class CourtTypeUpdateView(View):
         form = CourtTypeForm(instance=court_type)
         return render(request, self.template_name, {'form': form, 'court_type':court_type})
 
-    def post(self, request, pk, *args, **kwargs):
-        court_type = get_object_or_404(CourtType, pk=pk)
-        form = CourtTypeForm(request.POST, instance=court_type)
+    def post(self, request, *args, **kwargs):
+        form = CourtTypeForm(request.POST)
         if form.is_valid():
+            print("here.............")
             form.save()
-            messages.success(request, "Object updated successfully.")
+            messages.success(request, "Object created successfully.")
             return redirect('court_type_list')
         else:
-            messages.error(request, "Update form submission failed. Please check the form.")
-            return render(request, self.template_name, {'form': form, 'court_type':court_type})
+            print("hereeeeeeeeeeeeeeeeeee")
+            print(form.errors)  # Print form errors to the console for debugging
+            messages.error(request, "Form submission failed. Please check the form.")
+            return render(request, self.template_name, {'form': form})
 
 class CourtTypeDeleteView(View):
     template_name = 'act_law/court_type.html' 

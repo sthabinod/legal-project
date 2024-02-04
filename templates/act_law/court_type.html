@@ -19,6 +19,8 @@
 				</div>
 				<!-- /Page Header -->
 
+
+
 				<!-- Table -->
 				<div class="row">
 					<div class="col-sm-12">
@@ -43,7 +45,7 @@
 												<td>{{object.name}}</td>
 												<td>{{object.code}}</td>		
 												<td>{{object.notes}}</td>
-												<td><span class="badge {% if object.status == 'active' %}bg-success-light text-success-light{% elif object.status == 'inactive' %}bg-danger-light text-danger-light{% endif %}">{{object.status}}</span></td>
+												<td><span class="badge {% if object.status == 'सक्रिय' %}bg-success-light text-success-light{% elif object.status == 'निष्क्रिय' %}bg-danger-light text-danger-light{% endif %}">{{object.status}}</span></td>
 												<td class="d-flex align-items-center">
 													<a href="{% url 'court_type_update' object.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_actandthelaw" onclick="setDeleteId({{ object.id }})"><i class="far fa-edit me-2"></i></a>
 													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_actandthelaw" onclick="setDeleteId({{ object.id }})"><i class="far fa-trash-alt me-2"></i></a>
@@ -76,21 +78,26 @@
 						</button>
 					</div>
 					<div class="modal-body">
-						<form method="post" action="{% url 'court_type_create' %}">
+
+						
+
+						<form id="add_actandthelaw_form"  method="post" action="{% url 'court_type_create' %}">
 							{% csrf_token %}
-							{% for field in form %}
-            <div class="mb-3">
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.errors %}
-                    <div class="text-danger">
-                        {% for error in field.errors %}
-                            {{ error }}
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-        {% endfor %}
+							
+
+		{% for field in form %}
+						<div class="mb-3">
+							{{ field.label_tag }}
+							{{ field }}
+							{% if field.errors %}
+								<div class="text-danger">
+									{% for error in field.errors %}
+										{{ error }}
+									{% endfor %}
+								</div>
+							{% endif %}
+						</div>
+					{% endfor %}
 							<br>
 							<br>
 							<div class="modal-footer">
@@ -218,6 +225,29 @@
 			});
 		}
 		};
+
+		$(document).ready(function () {
+			$('#add_actandthelaw').on('hidden.bs.modal', function () {
+				// Remove any content or reset the form inside the modal
+				$('#add_actandthelaw_form').trigger("reset");
+			});
+	
+			$('#add_actandthelaw_form').submit(function (e) {
+				e.preventDefault(); // Prevent the form from submitting in the default way
+				$.ajax({
+					type: 'POST',
+					url: $(this).attr('action'),
+					data: $(this).serialize(),
+					success: function (data) {
+						// Handle success, e.g., refresh the page or update the table
+						location.reload();
+					},
+					error: function (error) {
+						console.error('Error:', error);
+					}
+				});
+			});
+		});
 	</script>
 		
 {% endblock 'content' %}

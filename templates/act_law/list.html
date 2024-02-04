@@ -45,7 +45,7 @@
 												<td>{{act_law.name}}</td>
 												<td>{{act_law.code}}</td>		
 												<td>{{act_law.notes}}</td>
-												<td><span class="badge {% if act_law.status == 'active' %}bg-success-light text-success-light{% elif act_law.status == 'inactive' %}bg-danger-light text-danger-light{% endif %}">{{act_law.status}}</span></td>
+												<td><span class="badge {% if act_law.status == 'सक्रिय' %}bg-success-light text-success-light{% elif act_law.status == 'निष्क्रिय' %}bg-danger-light text-danger-light{% endif %}">{{act_law.status}}</span></td>
 												<td class="d-flex align-items-center">
 													<a href="{% url 'actlaw_update' act_law.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_actandthelaw" onclick="setDeleteId({{ act_law.id }})"><i class="far fa-edit me-2"></i></a>
 													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_actandthelaw" onclick="setDeleteId({{ act_law.id }})"><i class="far fa-trash-alt me-2"></i></a>

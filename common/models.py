@@ -5,9 +5,9 @@ class Designation(models.Model):
     name = models.CharField(max_length=255)
     notes = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=[
-        ('active', 'Active'),
-        ('inactive', 'Inactive'),
-    ], default='active')
+        ('निष्क्रिय', 'निष्क्रिय'),
+        ('सक्रिय', 'सक्रिय'),
+    ], default='सक्रिय')
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
@@ -27,9 +27,9 @@ class JudgeCommittee(models.Model):
     designation = models.ForeignKey(Designation,on_delete=models.CASCADE)
     image = models.ImageField(upload_to='judge_committee')
     status = models.CharField(max_length=20, choices=[
-        ('active', 'Active'),
-        ('inactive', 'Inactive'),
-    ], default='active')
+        ('निष्क्रिय', 'निष्क्रिय'),
+        ('सक्रिय', 'सक्रिय'),
+    ], default='सक्रिय')
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
@@ -44,9 +44,9 @@ class DocumentType(models.Model):
     name = models.CharField(max_length=255)
     notes = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=[
-        ('active', 'Active'),
-        ('inactive', 'Inactive'),
-    ], default='active')
+        ('निष्क्रिय', 'निष्क्रिय'),
+        ('सक्रिय', 'सक्रिय'),
+    ], default='सक्रिय')
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
@@ -64,9 +64,9 @@ class FiscalYear(models.Model):
     end_date = models.DateField()
     notes = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=[
-        ('active', 'Active'),
-        ('inactive', 'Inactive'),
-    ], default='active')
+        ('निष्क्रिय', 'निष्क्रिय'),
+        ('सक्रिय', 'सक्रिय'),
+    ], default='सक्रिय')
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
@@ -82,9 +82,9 @@ class OfficeWard(models.Model):
     ward_no = models.CharField(max_length=255)
     ward_name= models.CharField(max_length=255)
     status = models.CharField(max_length=20, choices=[
-        ('active', 'Active'),
-        ('inactive', 'Inactive'),
-    ], default='active')
+        ('निष्क्रिय', 'निष्क्रिय'),
+        ('सक्रिय', 'सक्रिय'),
+    ], default='सक्रिय')
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):

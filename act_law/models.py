@@ -6,9 +6,9 @@ class ActLaw(models.Model):
     code = models.CharField(max_length=20, unique=True)
     notes = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=[
-        ('active', 'Active'),
-        ('inactive', 'Inactive'),
-    ], default='active')
+        ('निष्क्रिय', 'निष्क्रिय'),
+        ('सक्रिय', 'सक्रिय'),
+    ], default='सक्रिय')
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
@@ -27,9 +27,9 @@ class CourtType(models.Model):
     name = models.CharField(max_length=255)
     notes = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=[
-        ('active', 'Active'),
-        ('inactive', 'Inactive'),
-    ], default='active')
+        ('निष्क्रिय', 'निष्क्रिय'),
+        ('सक्रिय', 'सक्रिय'),
+    ], default='सक्रिय')
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):

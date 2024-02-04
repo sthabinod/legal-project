@@ -42,7 +42,7 @@
 												<td>{{counter}}</td>
 												<td>{{case_stage.name}}</td>
 												<td>{{case_stage.notes}}</td>
-												<td><span class="badge {% if case_stage.status == 'active' %}bg-success-light text-success-light{% elif case_stage.status == 'inactive' %}bg-danger-light text-danger-light{% endif %}">{{case_stage.status}}</span></td>
+												<td><span class="badge {% if case_stage.status == 'सक्रिय' %}bg-success-light text-success-light{% elif case_stage.status == 'निष्क्रिय' %}bg-danger-light text-danger-light{% endif %}">{{case_stage.status}}</span></td>
 												<td class="d-flex align-items-center">
 													<a href="{% url 'case_stage_update' case_stage.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ case_stage.id }})"><i class="far fa-edit me-2"></i></a>
 													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ case_stage.id }})"><i class="far fa-trash-alt me-2"></i></a>
