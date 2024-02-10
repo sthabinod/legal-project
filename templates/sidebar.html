@@ -27,10 +27,10 @@
                 <li class="submenu">
                     <a href="#"><i class="fe fe-package"></i> <span>मुख्य सेटअप</span> <span class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="office-setup.html">मुख्य सेटअप</a></li>
-                        <li><a href="category.html">गृह पृष्ठ सेटअप</a></li>
-                        <li><a href="{% url 'case_report_list' %}" class="{% if request.path == '/case/case_report/' %}active{% endif %}">मामिला</a></li>
-                        <li><a href="{% url 'case_type_list' %}" class="{% if request.path == '/case/case_type/' %}active{% endif %}">मामिलाका प्रकारहरु</a></li>
+                        <li><a href="{% url 'office_user_page' %}" class="{% if request.path == '/users/office_user/' %}active{% endif %}">कार्यालय सेटअप</a></li>
+                        <li><a href="{% url 'officer_user_page' %}" class="{% if request.path == '/users/officer_user/' %}active{% endif %}">शाखा अधिकारी सेटअप</a></li>
+                        <li><a href="{% url 'sub_head_user_page' %}" class="{% if request.path == '/users/sub_head_user/' %}active{% endif %}">उप प्रमुख सेटअप</a></li>
+                        <li><a href="{% url 'case_type_list' %}" class="{% if request.path == '/case/case_type/' %}active{% endif %}">मामिला</a></li>
                         <li><a href="{% url 'case_stage_list' %}" class="{% if request.path == '/case/case_stage/' %}active{% endif %}">मामला चरण</a></li>
                         <li><a href="{% url 'case_subtype_list' %}" class="{% if request.path == '/case/case_subtype/' %}active{% endif %}">‌मामला उप-प्रकार</a></li>
                         <li><a href="{% url 'court_type_list' %}" class="{% if request.path == '/act_law/court_type/' %}active{% endif %}">न्यायिक समितिको प्रकार</a></li>
@@ -38,137 +38,85 @@
                         <li><a href="{% url 'document_type_list' %}" class="{% if request.path == '/common/document_type/' %}active{% endif %}"> ‌कागजात प्रकार</a></li>
                         <li><a href="{% url 'judge_committee_list' %}"class="{% if request.path == '/common/judge_committee/' %}active{% endif %}"> ‌न्यायिक समितिको सदस्यहरु </a></li>
                         <li><a href="{% url 'office_ward_list' %}" class="{% if request.path == '/common/office_ward/' %}active{% endif %}"> ‌वडा कार्यालय </a></li> 
-                        <li><a href="{% url 'fiscal_year_list' %}" class="{% if request.path == '/common/fiscal_year/' %}active{% endif %}">‌वित्तीय वर्ष </a></li> 
-                        <li><a href="units.html">वडा कार्यालय सेटअप</a></li>
-                        <li><a href="units.html">मामिलाको स्थिति</a></li>
-                        <li><a href="units.html">न्यायिक समिति सदस्य</a></li>
-                        <li><a href="units.html">कागजात सेटअप</a></li>
-                        <li><a href="units.html">मेलमिलाप कर्ता</a></li>
-                        <li><a href="units.html">प्रयोगकर्ता केस दर्ता</a></li>
-                        <li><a href="units.html">आर्थिक बर्ष सेटअप</a></li>
+                        <li><a href="{% url 'fiscal_year_list' %}" class="{% if request.path == '/common/fiscal_year/' %}active{% endif %}">‌वित्तीय वर्ष </a></li><li> 
+                        <li><a href="{% url 'mail_milap_karta_list' %}" class="{% if request.path == '/case/mail_milap_karta/' %}active{% endif %}">मेलमिलाप कर्ता </a></li><li>
+                        <li><a href="{% url 'actlaw_list' %}" class="{% if request.path == '/act_law/' %}active{% endif %}">ऐन/कानुन </a></li><li>
                     </ul>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-package"></i> <span>सेवाग्राही</span> <span class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="{% url 'manage_consumer' %}" class="{% if request.path == '/consumer/manage_consumer/' %}active{% endif %}">सेवाग्राही सेटअप</a></li>
-                        <li><a href="{% url 'consumer_list' %}" class="{% if request.path == '/consumer/' %}active{% endif %}">‌सेवाग्राहीहरु </a></li>
-                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="inventory.html"><i class="fe fe-user"></i> <span>विवाद/उजुरी</span></a>
                 </li>
             </ul>
             <!-- /Inventory -->
 
-            <!-- Sales -->
+            <!-- Consumers -->
             <ul>
-                <li class="menu-title"><span>दर्ता/चलानी</span></li>							
-                <li class="submenu"> 
-                    
-                    <a  href="#"><i class="fe fe-file"></i> <span>दर्ता/चलानी</span><span class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a  href="invoices.html">दर्ता/चलानी सेटअप</a></li>
-                        <li><a  href="invoice-template.html">दर्ता</a></li>
-                        <li><a  href="invoice-template.html">चलानी</a></li>
-                        
-                    </ul>
+                <li class="menu-title"><span>सेवाग्राही</span></li>
+                <li class="">
+                    <a href="{% url 'consumer_list' %}" class="{% if request.path == '/consumer/consumer_list/' %}active{% endif %}"><i class="fe fe-book"></i> <span>सेवाग्राही सूची</a>
                 </li>
             </ul>
-            <!-- /Sales -->
+            <!-- /Consumers -->
             
-            <!-- Membership) -->
+            <!-- Case Report -->
             <ul>
-                <li class="menu-title"><span>ऐन/कानुन संग्रह</span></li>
-                <li class="">  
-                    
-                    <a href="{% url 'actlaw_list' %}" class="{% if request.path == '/act_law/' %}active{% endif %}"><i class="fe fe-book"></i> <span>ऐन/कानुन</a>
-                    <a href="#"><i class="fe fe-book"></i> <span> सूचना</span></a>
+                <li class="menu-title"><span>विवाद/उजुरी</span></li>
+                <li class="">
+                    <a href="{% url 'case_report_list' %}" class="{% if request.path == '/case/case_report/' %}active{% endif %}"><i class="fe fe-book"></i> <span>विवाद/उजुरी सूची</a>
                 </li>
             </ul>
-            <!-- /Membership) -->
+            <!-- /Case Report -->
 
             <!-- Reports -->
             <ul>
                 <li class="menu-title"><span>रिपोर्ट</span></li>								
                 <li>
-                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>राय किताब</span></a>
+                    <a href="#"><i class="fe fe-clipboard"></i> <span>राय किताब</span></a>
                 </li>
                 <li>
-                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>मिसिल अभिलेख किताब</span></a>
+                    <a href="#"><i class="fe fe-clipboard"></i> <span>मिसिल अभिलेख किताब</span></a>
                 </li>
                 <li>
-                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>उजुरी र निवेदन डायरी किताब</span></a>
+                    <a href="#"><i class="fe fe-clipboard"></i> <span>उजुरी र निवेदन डायरी किताब</span></a>
                 </li>
                 <li>
-                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>दर्ता किताब</span></a>
+                    <a href="#"><i class="fe fe-clipboard"></i> <span>दर्ता किताब</span></a>
                 </li>
                 <li>
-                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>चलानी किताब</span></a>
+                    <a href="#"><i class="fe fe-clipboard"></i> <span>चलानी किताब</span></a>
                 </li>
                 <li>
-                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>तारिक किताब</span></a>
-                </li>
-                                            <li>
-                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>घटनाको विवरण</span></a>
+                    <a href="#"><i class="fe fe-clipboard"></i> <span>तारिक किताब</span></a>
                 </li>
                 <li>
-                    <a href="quotations.html"><i class="fe fe-clipboard"></i> <span>निवेदनहरुको विवरण</span></a>
+                    <a href="#"><i class="fe fe-clipboard"></i> <span>घटनाको विवरण</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fe fe-clipboard"></i> <span>निवेदनहरुको विवरण</span></a>
                 </li>
             </ul>
             <!-- /Reports -->
-
-            <!-- User Management -->
-            <ul>
-                <li class="menu-title"><span>User Management</span></li>
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-user"></i> <span> Manage Users</span> <span class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="add-user.html">Add User</a></li>
-                        <li><a href="users.html">Users</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="roles-permission.html"><i class="fe fe-clipboard"></i> <span>Roles & Permission</span></a>
-                </li>
-                <li>
-                    <a href="delete-account-request.html"><i class="fe fe-trash-2"></i> <span>Delete Account Request</span></a>
-                </li>
-            </ul>
-            <!-- /User Management -->
-
+            
             <!-- Authentication -->
-            <ul>
-                <li class="submenu">
-                    <a href="#"><i class="fe fe-lock"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="login.html"> Login </a></li>
-                        <li><a href="register.html"> Register </a></li>
-                        <li><a href="forgot-password.html"> Forgot Password </a></li>
-                        <li><a href="lock-screen.html"> Lock Screen </a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- /Authentication -->
-
-            <!-- Pages -->
-            <ul>
-                <li class="menu-title"><span>अनुसूची</span></li>							
-                <li>
-                    <a href="profile.html"><i class="fe fe-user"></i> <span>अनुसूची १५</span></a>
-                </li>
-                <li>
-                    <a href="error-404.html"><i class="fe fe-x-square"></i> <span>अनुसूची १६</span></a>
-                </li>
-                <li>
-                    <a href="blank-page.html"><i class="fe fe-file"></i> <span>अनुसूची १७</span></a>
-                </li>
-                <li>
-                    <a href="maps-vector.html"><i class="fe fe-image"></i> <span>अनुसूची १८</span></a>
-                </li>
-            </ul>
-            <!-- /Pages -->
+						<ul>
+							<li class="submenu">
+                                <a href="#"><i class="fe fe-lock"></i> <span> आनुसुचीहरु </span> <span class="menu-arrow"></span></a>
+                                <ul>
+                                    <li><a href="{% url 'schedule_four' %}" class="{% if request.path == '/schedules/schedule_four/' %}active{% endif %}">अनुसूची ४ (निवेदन -पत्र) </a></li><li>
+                                    <li><a href="{% url 'schedule_fourA' %}" class="{% if request.path == '/schedules/schedule_fourA/' %}active{% endif %}">अनुसूची ४(क) (दाबि फिर्ता गरी पाउँ) </a></li><li>
+                                    <li><a href="{% url 'schedule_five' %}" class="{% if request.path == '/schedules/schedule_five/' %}active{% endif %}">अनुसूची ५ (उजुरी दर्ता गरेको निस्साको) </a></li><li>
+                                    <li><a href="{% url 'schedule_six' %}" class="{% if request.path == '/schedules/schedule_six/' %}active{% endif %}">अनुसूची ६ (तारेख भरपाई) </a></li><li>
+                                    <li><a href="{% url 'schedule_seven' %}" class="{% if request.path == '/schedules/schedule_seven/' %}active{% endif %}">अनुसूची ७ (तारिखको पर्चा) </a></li><li>
+                                    <li><a href="{% url 'schedule_eight' %}" class="{% if request.path == '/schedules/schedule_eight/' %}active{% endif %}">अनुसूची ८ (लिखित जवाफ) </a></li><li>
+                                    <li><a href="{% url 'schedule_nineA' %}" class="{% if request.path == '/schedules/schedule_nineA/' %}active{% endif %}">अनुसूची ९(क) (म्याद सूचना) </a></li><li>
+                                    <li><a href="{% url 'schedule_nineB' %}" class="{% if request.path == '/schedules/schedule_nineB/' %}active{% endif %}">अनुसूची ९(ख)(प्रतिवादीको नाँउमा जारी गरेको म्यादको वुझेको भर्पाई) </a></li><li>
+                                    <li><a href="{% url 'schedule_ten' %}" class="{% if request.path == '/schedules/schedule_ten/' %}active{% endif %}">अनुसूची १० (न्यायिक समितिको निर्णय) </a></li><li>
+                                    <li><a href="{% url 'schedule_eleven' %}" class="{% if request.path == '/schedules/schedule_eleven/' %}active{% endif %}">अनुसूची ११ (अन्तरिम संरक्षणात्मक आदेश) </a></li><li>
+                                    <li><a href="{% url 'schedule_twelve' %}" class="{% if request.path == '/schedules/schedule_twelve/' %}active{% endif %}">अनुसूची १२ (मिलापत्रको संयुक्त निवेदन) </a></li><li>
+                                    <li><a href="{% url 'schedule_thirteen' %}" class="{% if request.path == '/schedules/schedule_thirteen/' %}active{% endif %}">अनुसूची १३ (मिलापत्रको ढाँचा) </a></li><li>
+                                    <li><a href="{% url 'schedule_fourteen' %}" class="{% if request.path == '/schedules/schedule_fourteen/' %}active{% endif %}">अनुसूची १४ (न्यायिक समिति समक्ष पेश गरेको निवेदन) </a></li><li>
+                                    <li><a href="{% url 'schedule_nineteen' %}" class="{% if request.path == '/schedules/schedule_nineteen/' %}active{% endif %}">अनुसूची १९ (तारिक/मेलमिलापमा रहेका उजुरीहरु) </a></li><li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- /Authentication -->
 
         </div>
     </div>

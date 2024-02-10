@@ -26,6 +26,8 @@ urlpatterns = [
     path("case/",include("case.urls")),
     path("consumer/",include("consumer.urls")),
     path("common/",include("common.urls")),
+    path("schedules/",include("schedules.urls")),
+    path("users/",include("users.urls")),
 ]
 
 if settings.DEBUG:

@@ -200,12 +200,28 @@ class CaseReportDetailView(View):
         return render(request, self.template_name)
     
 class ManageCaseReportView(View):
-    template_name = 'case/manage_report.html'
+    template_name = 'case/manage_case_report.html'
                                             
     def get(self, request, *args, **kwargs):
         # case_stage_list = CaseStage.objects.filter(is_deleted=False)
         # form = CaseStageForm()
         # return render(request, self.template_name, {"case_stage_list": case_stage_list,'form': form})
         return render(request, self.template_name)
-    
-    
+
+class MailMilapKartaListView(View):
+    template_name = 'case/mill_milap_karta_list.html'
+                                            
+    def get(self, request, *args, **kwargs):
+        # case_stage_list = CaseStage.objects.filter(is_deleted=False)
+        # form = CaseStageForm()
+        # return render(request, self.template_name, {"case_stage_list": case_stage_list,'form': form})
+        return render(request, self.template_name)
+
+class MailMilapKartaCreateView(View):
+    template_name = 'case/mill_milap_karta_create.html'
+                                            
+    def get(self, request, *args, **kwargs):
+        # case_stage_list = CaseStage.objects.filter(is_deleted=False)
+        # form = CaseStageForm()
+        # return render(request, self.template_name, {"case_stage_list": case_stage_list,'form': form})
+        return render(request, self.template_name)

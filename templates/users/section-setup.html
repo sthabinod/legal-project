@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block 'content' %}
+			{% load static %}
+			<!-- Page Wrapper -->
+			<div class="page-wrapper">
+				<div class="content container-fluid">				
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="content-page-header">
+							<h5>शाखा अधिकारी सेटअप सूची</h5>
+							<div class="list-btn">
+								<ul class="filter-list">
+									<li>
+										<a class="btn btn-primary" href="{% url 'officer_user_create' %}"><i class="fa fa-plus-circle me-2" aria-hidden="true"></i>थप्नुहोस्</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+					
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card-table">
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-center table-hover datatable">
+											<thead class="thead-light">
+												<tr>
+													<th>#</th>
+													<th>कार्यालय नाम</th>
+													<th>ठेगाना</th>
+													<th>सम्पर्क व्यक्ति </th>
+													<th>मोबाइल नं</th>
+													<th>कार्यालय नाम</th>
+													<th>स्थिति</th>
+													<th>कार्यहरू</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="profile.html" class="avatar avatar-md me-2"><img class="avatar-img rounded-circle" {% static 'assets/img/profiles/avatar-02.jpg' %} alt="User Image"></a>
+															<a href="profile.html">उर्लाबारी नगरपालिका <span>urlabari@example.com</span></a>
+														</h2>
+													</td>
+													<td>बिराटनगर</td>
+													<td>कुमारी खतिवडा</td>
+													<td>९८४२२९०६८५</td>
+													<td>19 Dec 2022, 06:12 PM</td>
+													<td><span class="badge badge-pill bg-success-light">सक्रिय</span></td>
+													<td class="d-flex align-items-center">
+														<a href="{% url 'officer_user_update' %}" class="btn btn-greys me-2"><i class="far fa-edit me-1"></i> सम्पादन गर्नुहोस्</a>
+													</td>
+												</tr>
+												<tr>
+													<td>2</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="profile.html" class="avatar avatar-md me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-02.jpg" alt="User Image"></a>
+															<a href="profile.html">उर्लाबारी नगरपालिका <span>urlabari@example.com</span></a>
+														</h2>
+													</td>
+													<td>बिराटनगर</td>
+													<td>कुमारी खतिवडा</td>
+													<td>९८४२२९०६८५</td>
+													<td>15 Dec 2022, 06:12 PM</td>
+													<td><span class="badge badge-pill bg-danger-light">निष्क्रिय</span></td>
+													<td class="d-flex align-items-center">
+														<a href="{% url 'officer_user_update' %}" class="btn btn-greys me-2"><i class="far fa-edit me-1"></i> सम्पादन गर्नुहोस्</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Page Wrapper -->
+			{% endblock %}
+

@@ -15,7 +15,9 @@ from .views import (
     CaseTypeView,
     CaseReportView,
     CaseReportDetailView,
-    ManageCaseReportView
+    ManageCaseReportView,
+    MailMilapKartaListView,
+    MailMilapKartaCreateView
 )
 
 urlpatterns = [
@@ -34,4 +36,6 @@ urlpatterns = [
     path('case_report/', CaseReportView.as_view(), name='case_report_list'),
     path('case_report_detail/', CaseReportDetailView.as_view(), name='case_report_detail'),
     path('manage_case_report/', ManageCaseReportView.as_view(), name='manage_case_report'),
+    path('mail_milap_karta_list/', MailMilapKartaListView.as_view(), name='mail_milap_karta_list'),
+    path('mail_milap_karta_create/', MailMilapKartaCreateView.as_view(), name='mail_milap_karta_create'),
 ]

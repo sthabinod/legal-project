@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block 'content' %}
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+   <div class="content container-fluid">
+      <!-- Page Header -->
+      <div class="page-header">
+         <div class="content-page-header">
+            <h5>उप प्रमुख थप्नुहोस्</h5>
+         </div>
+      </div>
+      <!-- /Page Header -->				
+      <div class="row">
+         <div class="col-md-12">
+            <form action="#">
+               <div class="card-body">
+                  <div class="form-group-item">
+                     <div class="profile-picture">
+                        <div class="upload-profile">
+                           <div class="profile-img">
+                              <img id="blah" class="avatar" src="assets/img/profiles/avatar-10.jpg" alt="">
+                           </div>
+                           <div class="add-profile">
+                              <h5>तस्वीर अपलोड गर्नुहोस्</h5>
+                              <span>logo.jpg</span>
+                           </div>
+                        </div>
+                        <div class="img-upload">
+                           <label class="btn btn-primary">
+                           अपलोड गर्नुहोस् <input type="file">
+                           </label>
+                           <a class="btn btn-remove">हटाउनुहोस्</a>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>उप प्रमुखको नाम</label>
+                              <input type="text" class="form-control" placeholder="उप प्रमुखको प्रविष्ट गर्नुहोस्">
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>कार्यालय नाम</label>
+                              <input type="text" class="form-control" placeholder="कार्यालय नाम प्रविष्ट गर्नुहोस्">
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>नोटहरू</label>
+                              <input type="text" class="form-control" placeholder="नोटहरू प्रविष्ट गर्नुहोस्">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group-item">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="billing-btn mb-2">
+                              <h5 class="form-title">ठेगाना</h5>
+                           </div>
+                           <div class="form-group">
+                              <label>प्रदेश</label>
+                              <select class="select">
+                                 <option>कोशी प्रदेश</option>
+                                 <option>मधेश प्रदेश</option>
+                                 <option>बागमती प्रदेश</option>
+                                 <option>लुम्बिनी प्रदेश</option>
+                                 <option>गण्डकी प्रदेश</option>
+                                 <option>कर्णाली प्रदेश</option>
+                                 <option>सुदूरपश्चिम प्रदेश</option>
+                              </select>
+                           </div>
+                           <div class="form-group">
+                              <label>जिल्ला</label>
+                              <select class="select">
+                                 <option>कोशी प्रदेश</option>
+                                 <option>मधेश प्रदेश</option>
+                                 <option>बागमती प्रदेश</option>
+                                 <option>लुम्बिनी प्रदेश</option>
+                                 <option>गण्डकी प्रदेश</option>
+                                 <option>कर्णाली प्रदेश</option>
+                                 <option>सुदूरपश्चिम प्रदेश</option>
+                              </select>
+                           </div>
+                           <div class="form-group">
+                              <label>ठेगाना</label>
+                              <input type="text" class="form-control" placeholder="ठेगाना प्रविष्ट गर्नुहोस्">
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="billing-btn">
+                              <h5 class="form-title mb-0">फोकल व्यक्ति</h5>
+                           </div>
+                           <div class="form-group">
+                              <label> कार्यालय नम्बर</label>
+                              <input type="text" class="form-control" placeholder=" कार्यालय नम्बर प्रविष्ट गर्नुहोस्">
+                           </div>
+                           <div class="form-group">
+                              <label>मोबाइल नं</label>
+                              <input type="text" class="form-control" placeholder="मोबाइल नं प्रविष्ट गर्नुहोस्">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group-customer customer-additional-form">
+                     <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <h5 class="form-title">लगइन प्रमाणहरू</h5>
+                           </div>
+                           <div class="form-group">
+                              <label>ईमेल</label>
+                              <input type="email" class="form-control" placeholder="ईमेल प्रविष्ट गर्नुहोस्">
+                           </div>
+                           <div class="form-group notes-form-group">
+                              <label>पासवर्ड</label>
+                              <input type="password" class="form-control" placeholder="पासवर्ड प्रविष्ट गर्नुहोस्">
+                           </div>
+                           <div class="form-group notes-form-group">
+                              <label>सुनिश्चित पासवर्ड</label>
+                              <input type="password" class="form-control" placeholder="पासवर्ड सुनिश्चित गर्नुहोस">
+                           </div>
+                           <div class="form-group">
+                              <div class="check-mark-status d-flex justify-content-between">
+                                 <h6 class="label-text">स्थिति</h6>
+                                 <div class="status-toggle">
+                                    <input id="rating_1" class="check" type="checkbox" checked>
+                                    <label for="rating_1" class="checktoggle checkbox-bg">checkbox</label>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="add-customer-btns text-end">
+                     <a href="#" type="reset" class="btn customer-btn-cancel">रद्द गर्नुहोस्</a>
+                     <a href="customers.html" type="submit" class="btn customer-btn-save">परिवर्तनहरू सुरक्षित गर्नुहोस</a>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /Page Wrapper -->
+{% endblock %}
