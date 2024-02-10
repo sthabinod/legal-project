@@ -84,3 +84,21 @@ class SubHeadUserUpdateView(View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+    
+class HelperUserView(View):
+    template_name = 'users/helper-setup.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+class HelperUserCreateView(View):
+    template_name = 'users/manage-helper.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+class HelperUserUpdateView(View):
+    template_name = 'users/manage-helper.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)

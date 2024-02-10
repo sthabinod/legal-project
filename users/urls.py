@@ -1,6 +1,6 @@
 # urls.py
 from django.urls import path
-from .views import LoginView, LogoutView, OfficeUserView, OfficeUserCreateView, OfficeUserUpdateView, OfficerUserView, OfficerUserCreateView, OfficerUserCreateView, OfficerUserUpdateView, SubHeadUserView, SubHeadUserCreateView, SubHeadUserUpdateView
+from .views import LoginView, LogoutView, OfficeUserView, OfficeUserCreateView, OfficeUserUpdateView, OfficerUserView, OfficerUserCreateView, OfficerUserCreateView, OfficerUserUpdateView, SubHeadUserView, SubHeadUserCreateView, SubHeadUserUpdateView, HelperUserView, HelperUserCreateView, HelperUserUpdateView
 
 urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
@@ -14,4 +14,7 @@ urlpatterns = [
     path('sub_head_user/', SubHeadUserView.as_view(), name='sub_head_user_page'),
     path('sub_head_user/create/', SubHeadUserCreateView.as_view(), name='sub_head_user_create'),
     path('sub_head_user/update/', SubHeadUserUpdateView.as_view(), name='sub_head_user_update'),
+    path('helper_user/', HelperUserView.as_view(), name='helper_user_page'),
+    path('helper_user/create/', HelperUserCreateView.as_view(), name='helper_user_create'),
+    path('helper_user/update/', HelperUserUpdateView.as_view(), name='helper_user_update'),
 ]
