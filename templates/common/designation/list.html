@@ -1,226 +1,214 @@
 {% extends "base.html" %}
 {% block 'content' %}
-
-
-    <!-- Page Wrapper -->
-    <div class="page-wrapper">
-        <div class="content container-fluid">
-        
-            <!-- Page Header -->
-            <div class="page-header">
-                <div class="content-page-header">
-                    <h5>पद सेटअप सूची</h5>
-                    <div class="list-btn">
-                        <ul class="filter-list">
-                            <li>
-                                <a class="btn btn-primary" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add_casetype"><i class="fa fa-plus-circle me-2" aria-hidden="true"></i>सिर्जना गर्नुहोस्</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+   <div class="content container-fluid">
+      <!-- Page Header -->
+      <div class="page-header">
+         <div class="content-page-header">
+            <h5>पद सेटअप सूची</h5>
+            <div class="list-btn">
+               <ul class="filter-list">
+                  <li>
+                     <a class="btn btn-primary" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#add_casetype"><i class="fa fa-plus-circle me-2" aria-hidden="true"></i>सिर्जना गर्नुहोस्</a>
+                  </li>
+               </ul>
             </div>
-            <!-- /Page Header -->
-
-            <!-- Table -->
+         </div>
+      </div>
+      <!-- /Page Header -->
+      <!-- Table -->
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="card-table">
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-stripped table-hover datatable">
+                        <thead class="thead-light">
+                           <tr>
+                              <th>#</th>
+                              <th>नाम</th>
+                              <th>नोटहरू</th>
+                              <th>स्थिति</th>
+                              <th class="text-end">कार्यहरू</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           {% for designation in designation_list %}
+                           <tr>
+                              <td>{{counter}}</td>
+                              <td>{{designation.name}}</td>
+                              <td>{{designation.notes}}</td>
+                              <td><span class="badge {% if designation.status == 'सक्रिय' %}bg-success-light text-success-light{% elif designation.status == 'निष्क्रिय' %}bg-danger-light text-danger-light{% endif %}">{{designation.status}}</span></td>
+                              <td class="d-flex align-items-center">
+                                 <a href="{% url 'designation_update' designation.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ designation.id }})"><i class="far fa-edit me-2"></i></a>
+                                 <a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ designation.id }})"><i class="far fa-trash-alt me-2"></i></a>
+                              </td>
+                           </tr>
+                           {% endfor %}			
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /Table -->
+   </div>
+</div>
+<!-- /Page Wrapper -->
+<!-- Add Modal -->
+<div class="modal custom-modal fade" id="add_casetype" role="dialog">
+   <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+         <div class="modal-header border-0 pb-0">
+            <div class="form-header modal-header-title text-start mb-0">
+               <h4 class="mb-0">पद थप्नुहोस्</h4>
+            </div>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span class="align-center" aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="card-table"> 
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-stripped table-hover datatable">
-                                    <thead class="thead-light">
-                                        <tr>
-                                           <th>#</th>
-                                           <th>नाम</th>
-                                            <th>नोटहरू</th>
-                                           <th>स्थिति</th>
-                                           <th class="text-end">कार्यहरू</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        {% for designation in designation_list %}
-											<tr>
-												<td>{{counter}}</td>
-												<td>{{designation.name}}</td>
-												<td>{{designation.notes}}</td>
-												<td><span class="badge {% if designation.status == 'सक्रिय' %}bg-success-light text-success-light{% elif designation.status == 'निष्क्रिय' %}bg-danger-light text-danger-light{% endif %}">{{designation.status}}</span></td>
-												<td class="d-flex align-items-center">
-													<a href="{% url 'designation_update' designation.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ designation.id }})"><i class="far fa-edit me-2"></i></a>
-													<a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ designation.id }})"><i class="far fa-trash-alt me-2"></i></a>
-												</td>
-											</tr>
-											{% endfor %}			
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Table -->
-
-        </div>
-    </div>
-    <!-- /Page Wrapper -->
-
-    <!-- Add Modal -->
-    <div class="modal custom-modal fade" id="add_casetype" role="dialog">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-header border-0 pb-0">
-                    <div class="form-header modal-header-title text-start mb-0">
-                        <h4 class="mb-0">पद थप्नुहोस्</h4>
-                    </div>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span class="align-center" aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <form method="post" action="{% url 'designation_create' %}">
-							{% csrf_token %}
-							{% for field in form %}
-            <div class="mb-3">
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.errors %}
-                    <div class="text-danger">
+               <form method="post" action="{% url 'designation_create' %}">
+                  {% csrf_token %}
+                  {% for field in form %}
+                  <div class="mb-3">
+                     {{ field.label_tag }}
+                     {{ field }}
+                     {% if field.errors %}
+                     <div class="text-danger">
                         {% for error in field.errors %}
-                            {{ error }}
+                        {{ error }}
                         {% endfor %}
-                    </div>
-                {% endif %}
+                     </div>
+                     {% endif %}
+                  </div>
+                  {% endfor %}
+                  <br>
+                  <br>
+                  <div class="modal-footer">
+                     <button  data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</button>
+                     <button type="submit" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">व्यवस्थापन गर्नुहोस्</button>
+                  </div>
+               </form>
             </div>
-        {% endfor %}
-							<br>
-							<br>
-							<div class="modal-footer">
-								<button  data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</button>
-								<button type="submit" data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn">व्यवस्थापन गर्नुहोस्</button>
-							</div>
-						  </form>
-                    </div>
-                </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /Add Modal -->
+<!-- Edit Modal -->
+<div class="modal custom-modal fade" id="edit_casetype" role="dialog">
+   <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+         <div class="modal-header border-0 pb-0">
+            <div class="form-header modal-header-title text-start mb-0">
+               <h4 class="mb-0">पद सम्पादन गर्नुहोस्</h4>
             </div>
-        </div>
-    </div>
-    <!-- /Add Modal -->
-
-    <!-- Edit Modal -->
-    <div class="modal custom-modal fade" id="edit_casetype" role="dialog">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-header border-0 pb-0">
-                    <div class="form-header modal-header-title text-start mb-0">
-                        <h4 class="mb-0">पद सम्पादन गर्नुहोस्</h4>
-                    </div>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span class="align-center" aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <form id="update-form">
-                            {% csrf_token %}
-                            {% for field in form %}
-                                <div class="mb-3">
-                                    {{ field.label_tag }}
-                                    {{ field }}
-                                    {% if field.errors %}
-                                        <div class="text-danger">
-                                            {% for error in field.errors %}
-                                                {{ error }}
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            {% endfor %}
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</a>
-                    <button data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn" onclick="updateActLaw()">अपडेट गर्नुहोस्</button>
-                </div>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span class="align-center" aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="row">
+               <form id="update-form">
+                  {% csrf_token %}
+                  {% for field in form %}
+                  <div class="mb-3">
+                     {{ field.label_tag }}
+                     {{ field }}
+                     {% if field.errors %}
+                     <div class="text-danger">
+                        {% for error in field.errors %}
+                        {{ error }}
+                        {% endfor %}
+                     </div>
+                     {% endif %}
+                  </div>
+                  {% endfor %}
+               </form>
             </div>
-        </div>
-    </div>
-    <!-- /Edit Modal -->
-
-    <!-- Delete Modal -->
-    <div class="modal custom-modal fade" id="delete_casetype" role="dialog">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="form-header">
-                        <h3>मेटाउन पद</h3>
-                        <p>के तपाईं निश्चित रूपमा मेटाउन चाहनुहुन्छ?</p>
-                    </div>
-                    <div class="modal-btn delete-action">
-                        <div class="row">
-                            <div class="col-6">
-                                <a href="" type="submit" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-continue-btn" onclick="softDelete()">मेटाउन</a>
-                            </div>
-                            <div class="col-6">
-                                <button type="submit" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-cancel-btn">रद्द गर्नुहोस्</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+         </div>
+         <div class="modal-footer">
+            <a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</a>
+            <button data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn" onclick="updateActLaw()">अपडेट गर्नुहोस्</button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /Edit Modal -->
+<!-- Delete Modal -->
+<div class="modal custom-modal fade" id="delete_casetype" role="dialog">
+   <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+         <div class="modal-body">
+            <div class="form-header">
+               <h3>मेटाउन पद</h3>
+               <p>के तपाईं निश्चित रूपमा मेटाउन चाहनुहुन्छ?</p>
             </div>
-        </div>
-    </div>
-    <!-- /Delete Modal -->
-    
-
+            <div class="modal-btn delete-action">
+               <div class="row">
+                  <div class="col-6">
+                     <a href="" type="submit" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-continue-btn" onclick="softDelete()">मेटाउन</a>
+                  </div>
+                  <div class="col-6">
+                     <button type="submit" data-bs-dismiss="modal" class="w-100 btn btn-primary paid-cancel-btn">रद्द गर्नुहोस्</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /Delete Modal -->
 <script>
-    let deleteId = null;
-
-    function setDeleteId(id) {
-        console.log(deleteId)
-        deleteId = id;
-    }
+   let deleteId = null;
+   
+   function setDeleteId(id) {
+       console.log(deleteId)
+       deleteId = id;
+   }
 </script>
 <script>
-    function softDelete() {
-        console.log(deleteId)
-        if (deleteId !== null) {
-            // Make an AJAX request to soft delete the ActLaw
-            $.ajax({
-                url: `/common/designation/${deleteId}/delete/`,
-                method: 'POST',
-                data: { csrfmiddlewaretoken: '{{ csrf_token }}' },  // Include CSRF token
-                success: function (data) {
-                    // Handle success, e.g., refresh the page or update the table
-                    location.reload();
-                },
-                error: function (error) {
-                    console.error('Error:', error);
-                }
-            });
-        }
-    };
-
-    function updateActLaw() {
-        if (deleteId !== null) {
-        // Assuming you give your form an id="update-form"
-        var formData = $('#update-form').serialize();
-        var actLawId = $('#act_law_id').val();
-        console.log(deleteId)
-        $.ajax({
-            url: `/common/designation/${deleteId}/update/`,
-            method: 'POST',
-            data: formData,
-            success: function (data) {
-                location.reload();  // You may want to update the table using JavaScript instead of reloading the entire page
-            },
-            error: function (error) {
-                console.error('Error:', error);
-            }
-        });
-    }
-    };
+   function softDelete() {
+       console.log(deleteId)
+       if (deleteId !== null) {
+           // Make an AJAX request to soft delete the ActLaw
+           $.ajax({
+               url: `/common/designation/${deleteId}/delete/`,
+               method: 'POST',
+               data: { csrfmiddlewaretoken: '{{ csrf_token }}' },  // Include CSRF token
+               success: function (data) {
+                   // Handle success, e.g., refresh the page or update the table
+                   location.reload();
+               },
+               error: function (error) {
+                   console.error('Error:', error);
+               }
+           });
+       }
+   };
+   
+   function updateActLaw() {
+       if (deleteId !== null) {
+       // Assuming you give your form an id="update-form"
+       var formData = $('#update-form').serialize();
+       var actLawId = $('#act_law_id').val();
+       console.log(deleteId)
+       $.ajax({
+           url: `/common/designation/${deleteId}/update/`,
+           method: 'POST',
+           data: formData,
+           success: function (data) {
+               location.reload();  // You may want to update the table using JavaScript instead of reloading the entire page
+           },
+           error: function (error) {
+               console.error('Error:', error);
+           }
+       });
+   }
+   };
 </script>
-
 {% endblock %}

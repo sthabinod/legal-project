@@ -1,142 +1,121 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-		<title>कानूनी मामिला प्रणाली - ऐन/कानुन सेटअप</title>
-		
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="assets/img/favicon.png">
-		
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
-		<!-- Fontawesome CSS -->
-		<link rel="stylesheet" href="{% static 'plugins/fontawesome/css/fontawesome.min.css' %}">
-		<link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.min.css'%}">
-
-		<!-- Feather CSS -->
-		<link rel="stylesheet" href="{% static 'plugins/feather/feather.css'%}">
-
-		<!-- Select2 CSS -->
-		<link rel="stylesheet" href="{% static 'plugins/select2/css/select2.min.css'%}">
-
-		<!-- Datepicker CSS -->
-		<link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.min.css'%}">
-		
-		<!-- Datatables CSS -->
-		<link rel="stylesheet" href="{% static 'plugins/datatables/datatables.min.css'%}">
-		
-		<!-- Main CSS -->
-		<link rel="stylesheet" href="{% static 'css/style.css'%}">
-
-		<link href="{% static 'css\nepali.datepicker.v4.0.1.min.css' %}" rel="stylesheet" type="text/css"/>
-		
-	</head>
-	
-	<body>
-		<div class="main-wrapper">
-		{% include "header.html" %}
-		{% include "sidebar.html" %}
-		{% block 'content' %}
-		
-		{% endblock 'content' %}
-		</div>
-		
-		<!-- jQuery -->
-		<script src="{% static 'js/jquery-3.6.3.min.js'%}"></script>
-		
-		<!-- Bootstrap Core JS -->
-		<script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
-
-		<!-- Datatable JS -->
-		<script src="{% static 'plugins/datatables/datatables.min.js'%}"></script>
-
-		<!-- select CSS -->
-		<script src="{% static 'plugins/select2/js/select2.min.js'%}"></script>
-		
-		<!-- Slimscroll JS -->
-		<script src="{% static 'plugins/slimscroll/jquery.slimscroll.min.js'%}"></script>
-		
-		<!-- Datepicker Core JS -->
-		<script src="{% static 'plugins/moment/moment.min.js'%}"></script>
-		<script src="{% static 'js/bootstrap-datetimepicker.min.js'%}"></script>
-		
-		<!-- multiselect JS -->
-		<script src="{% static 'js/jquery-ui.min.js'%}"></script>
-		
-		<!-- Custom JS -->
-		<script src="{% static 'js/script.js' %}"></script>
-		<script src="https://cdn.jsdelivr.net/npm/nepali-date-converter/dist/nepali-date-converter.umd.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-		<script src="{% static 'js/nepali.datepicker.v4.0.1.min.js' %}"></script>
-		<script type="text/javascript">
-			document.addEventListener('DOMContentLoaded', function () {
-				// Initialize Nepali date picker
-				var datePicker = document.getElementById('permanent_birth_date');
-				console.log("here");
-				console.log(datePicker);
-				datePicker.nepaliDatePicker();
-
-				var datePicker01 = document.getElementById('permanent_citizenship_issue_date');
-				datePicker01.nepaliDatePicker();
-		
-				// Add blur event listener to trigger age calculation
-				datePicker.addEventListener('click', function () {
-					calculateAge(datePicker.value);
-				});
-			});
-		
-			function calculateAge(selectedNepaliDate) {
-				if (selectedNepaliDate) {
-					// Parse the selected Nepali date
-					var birthDateNepali = new Date(selectedNepaliDate);
-			
-					// Get the current date dynamically
-					var todayEnglish = new Date();
-			
-					// Adjust the birth date based on the 56-year difference
-					var birthDateEnglish = new Date(birthDateNepali.getFullYear() - 57, birthDateNepali.getMonth(), birthDateNepali.getDate());
-			
-					// Calculate age
-					var age = todayEnglish.getFullYear() - birthDateEnglish.getFullYear();
-			
-					// Check if the birthday has occurred this year
-					if (
-						todayEnglish.getMonth() < birthDateEnglish.getMonth() ||
-						(todayEnglish.getMonth() === birthDateEnglish.getMonth() && todayEnglish.getDate() < birthDateEnglish.getDate())
-					) {
-						age--;
-					}
-			
-					// Update the age field
-					document.getElementById('permanent_age').value = age;
-				}
-			}
-		</script>
-
-		<script>
-			$(document).ready(function() {
-				// Function to copy values from permanent to temporary address
-				$("#copyPermanentToTemporaryBtn").on("click", function() {
-					$("#temporary_state").val($("#id_state").val());
-					alert($("#temporary_state").val());
-					alert($("#id_state").val());
-					$("#temporary_district").val($("#id_district").val());
-					$("#temporary_municipality").val($("#id_municipality").val());
-					$("#temporary_ward").val($("#id_ward").val());
-				});
-			});
-			</script>
-			<script>
-				$(document).ready(function() {
-					// Click event for the "परिवर्तनहरू सुरक्षित गर्नुहोस" button
-					$("#saveChangesBtn").on("click", function() {
-						// Trigger form submission when the button is clicked
-						$("#consumerForm").submit();
-					});
-				});
-			</script>
-	</body>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+      <title>कानूनी मामिला प्रणाली - ऐन/कानुन सेटअप</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="assets/img/favicon.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <!-- Fontawesome CSS -->
+      <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/fontawesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.min.css'%}">
+      <!-- Feather CSS -->
+      <link rel="stylesheet" href="{% static 'plugins/feather/feather.css'%}">
+      <!-- Select2 CSS -->
+      <link rel="stylesheet" href="{% static 'plugins/select2/css/select2.min.css'%}">
+      <!-- Datepicker CSS -->
+      <link rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.min.css'%}">
+      <!-- Datatables CSS -->
+      <link rel="stylesheet" href="{% static 'plugins/datatables/datatables.min.css'%}">
+      <!-- Main CSS -->
+      <link rel="stylesheet" href="{% static 'css/style.css'%}">
+      <link href="{% static 'css\nepali.datepicker.v4.0.1.min.css' %}" rel="stylesheet" type="text/css"/>
+   </head>
+   <body>
+      <div class="main-wrapper">
+         {% include "header.html" %}
+         {% include "sidebar.html" %}
+         {% block 'content' %}
+         {% endblock 'content' %}
+      </div>
+      <!-- jQuery -->
+      <script src="{% static 'js/jquery-3.6.3.min.js'%}"></script>
+      <!-- Bootstrap Core JS -->
+      <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+      <!-- Datatable JS -->
+      <script src="{% static 'plugins/datatables/datatables.min.js'%}"></script>
+      <!-- select CSS -->
+      <script src="{% static 'plugins/select2/js/select2.min.js'%}"></script>
+      <!-- Slimscroll JS -->
+      <script src="{% static 'plugins/slimscroll/jquery.slimscroll.min.js'%}"></script>
+      <!-- Datepicker Core JS -->
+      <script src="{% static 'plugins/moment/moment.min.js'%}"></script>
+      <script src="{% static 'js/bootstrap-datetimepicker.min.js'%}"></script>
+      <!-- multiselect JS -->
+      <script src="{% static 'js/jquery-ui.min.js'%}"></script>
+      <!-- Custom JS -->
+      <script src="{% static 'js/script.js' %}"></script>
+      <script src="https://cdn.jsdelivr.net/npm/nepali-date-converter/dist/nepali-date-converter.umd.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script src="{% static 'js/nepali.datepicker.v4.0.1.min.js' %}"></script>
+      <script type="text/javascript">
+         document.addEventListener('DOMContentLoaded', function () {
+         	// Initialize Nepali date picker
+         	var datePicker = document.getElementById('permanent_birth_date');
+         	console.log("here");
+         	console.log(datePicker);
+         	datePicker.nepaliDatePicker();
+         
+         	var datePicker01 = document.getElementById('permanent_citizenship_issue_date');
+         	datePicker01.nepaliDatePicker();
+         
+         	// Add blur event listener to trigger age calculation
+         	datePicker.addEventListener('click', function () {
+         		calculateAge(datePicker.value);
+         	});
+         });
+         
+         function calculateAge(selectedNepaliDate) {
+         	if (selectedNepaliDate) {
+         		// Parse the selected Nepali date
+         		var birthDateNepali = new Date(selectedNepaliDate);
+         
+         		// Get the current date dynamically
+         		var todayEnglish = new Date();
+         
+         		// Adjust the birth date based on the 56-year difference
+         		var birthDateEnglish = new Date(birthDateNepali.getFullYear() - 57, birthDateNepali.getMonth(), birthDateNepali.getDate());
+         
+         		// Calculate age
+         		var age = todayEnglish.getFullYear() - birthDateEnglish.getFullYear();
+         
+         		// Check if the birthday has occurred this year
+         		if (
+         			todayEnglish.getMonth() < birthDateEnglish.getMonth() ||
+         			(todayEnglish.getMonth() === birthDateEnglish.getMonth() && todayEnglish.getDate() < birthDateEnglish.getDate())
+         		) {
+         			age--;
+         		}
+         
+         		// Update the age field
+         		document.getElementById('permanent_age').value = age;
+         	}
+         }
+      </script>
+      <script>
+         $(document).ready(function() {
+         	// Function to copy values from permanent to temporary address
+         	$("#copyPermanentToTemporaryBtn").on("click", function() {
+         		$("#temporary_state").val($("#id_state").val());
+         		alert($("#temporary_state").val());
+         		alert($("#id_state").val());
+         		$("#temporary_district").val($("#id_district").val());
+         		$("#temporary_municipality").val($("#id_municipality").val());
+         		$("#temporary_ward").val($("#id_ward").val());
+         	});
+         });
+      </script>
+      <script>
+         $(document).ready(function() {
+         	// Click event for the "परिवर्तनहरू सुरक्षित गर्नुहोस" button
+         	$("#saveChangesBtn").on("click", function() {
+         		// Trigger form submission when the button is clicked
+         		$("#consumerForm").submit();
+         	});
+         });
+      </script>
+   </body>
 </html>

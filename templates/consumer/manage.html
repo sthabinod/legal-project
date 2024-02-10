@@ -1,223 +1,216 @@
 {% extends "base.html" %}
 {% block 'content' %} 			
-			<!-- Page Wrapper -->
-			<div class="page-wrapper">
-				<div class="content container-fluid">
-					<!-- Page Header -->
-					<div class="page-header">
-						<div class="content-page-header">
-							<h5>सेवाग्राही थप्नुहोस्</h5>
-						</div>	
-					</div>
-
-					{% if ce %}
-    <div class="alert alert-danger">
-        <strong>Error in Consumer Form:</strong>
-        <ul>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+   <div class="content container-fluid">
+      <!-- Page Header -->
+      <div class="page-header">
+         <div class="content-page-header">
+            <h5>सेवाग्राही थप्नुहोस्</h5>
+         </div>
+      </div>
+      {% if ce %}
+      <div class="alert alert-danger">
+         <strong>Error in Consumer Form:</strong>
+         <ul>
             {% for field, errors in ce.items %}
-                <li>{{ field }}:
-                    <ul>
-                        {% for error in errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                </li>
+            <li>
+               {{ field }}:
+               <ul>
+                  {% for error in errors %}
+                  <li>{{ error }}</li>
+                  {% endfor %}
+               </ul>
+            </li>
             {% endfor %}
-        </ul>
-    </div>
-{% endif %}
-
-{% if pe %}
-    <div class="alert alert-danger">
-        <strong>Error in Permanent Address Form:</strong>
-        <ul>
+         </ul>
+      </div>
+      {% endif %}
+      {% if pe %}
+      <div class="alert alert-danger">
+         <strong>Error in Permanent Address Form:</strong>
+         <ul>
             {% for field, errors in pe.items %}
-                <li>{{ field }}:
-                    <ul>
-                        {% for error in errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                </li>
+            <li>
+               {{ field }}:
+               <ul>
+                  {% for error in errors %}
+                  <li>{{ error }}</li>
+                  {% endfor %}
+               </ul>
+            </li>
             {% endfor %}
-        </ul>
-    </div>
-{% endif %}
-
-{% if te %}
-    <div class="alert alert-danger">
-        <strong>Error in Temporary Address Form:</strong>
-        <ul>
+         </ul>
+      </div>
+      {% endif %}
+      {% if te %}
+      <div class="alert alert-danger">
+         <strong>Error in Temporary Address Form:</strong>
+         <ul>
             {% for field, errors in te.items %}
-                <li>{{ field }}:
-                    <ul>
-                        {% for error in errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                </li>
+            <li>
+               {{ field }}:
+               <ul>
+                  {% for error in errors %}
+                  <li>{{ error }}</li>
+                  {% endfor %}
+               </ul>
+            </li>
             {% endfor %}
-        </ul>
-    </div>
-{% endif %}
-					<!-- /Page Header -->				
-					<div class="row">
-						<div class="col-md-12">
-							<form id="consumerForm" action="{% url 'manage_consumer' %}" method="POST">
-								{% csrf_token %}
-								<div class="card-body">
-									<div class="form-group-item">
-										<h5 class="form-title">आधारभूत विवरणहरू</h5>
-										<div class="profile-picture">
-											<div class="upload-profile">
-												<div class="profile-img">
-													<img id="blah" class="avatar" src="assets/img/profiles/avatar-10.jpg" alt="">
-												</div>
-												<div class="add-profile">
-													<h5>नयाँ फोटो अपलोड गर्नुहोस्</h5>
-													<span>Profile-pic.jpg</span>
-												</div>
-											</div>
-											<div class="img-upload">
-												<label class="btn btn-primary">
-													अपलोड गर्नुहोस् <input type="file">
-												</label>
-												<a class="btn btn-remove">Clipboard - Auto-Generated Number</a>
-												<a class="btn btn-remove">Clipboard - Auto-Group Number</a>
-											</div>										
-										</div>
-										<div class="row">
-											<div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>पुरा नाम</label>
-													{{ form.full_name }}
-												</div>
-											
-											</div>
-											
-											<div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>जन्म मिति</label>
-													{{ form.birth_date }}
-												</div>											
-											</div>
-											<div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>उमेर</label>
-													{{ form.age }}
-												</div>
-											</div>
-											<div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>लिङ्ग</label>
-													{{form.gender}}
-												</div>
-											</div>
-											<div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>ई-मेल</label>
-													{{form.email_address}}
-												</div>
-											</div>
-											<div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>मोबाइल नम्बर</label>
-													{{form.mobile_number}}
-												</div>											
-											</div>
-                                            <div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>नागरिकता नम्बर</label>
-													{{form.citizenship_no}}
-												</div>											
-											</div>
-                                            <div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>नागरिकता जारि जिल्ला</label>
-													{{form.citizenship_issue_district}}
-												</div>											
-											</div>
-                                            <div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>नागरिकता जारि मिति</label>
-													{{form.citizenship_issue_date}}
-												</div>	
-																									
-											</div>
-                                            <div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>हजुरबाबूको नाम</label>
-													{{form.grandfather_name}}
-												</div>											
-											</div>
-                                            <div class="col-lg-4 col-md-6 col-sm-12">
-												<div class="form-group">
-													<label>बाबुको नाम</label>
-													{{form.father_name}}
-												</div>											
-											</div>
-										</div>
-									</div>
-									<div class="form-group-item">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="billing-btn mb-2">
-													<h5 class="form-title">स्थायी ठेगाना</h5>
-												</div>
-												<div class="form-group">
-													
-
-													<label>स्थायी प्रदेश</label>
-
-                                                    {{permanent_form.state}}
-												</div>
-												<div class="form-group">
-													<label>स्थायी जिल्ला</label>
-                                                    {{permanent_form.district}}
-												</div>
-												<div class="form-group">
-													<label>स्थायी पालिका</label>
-													{{permanent_form.municipality}}
-												</div>
-                                                <div class="form-group">
-													<label>स्थायी वडा</label>
-                                                   {{permanent_form.ward}}
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="billing-btn">
-													<h5 class="form-title mb-0">अस्थायी ठेगाना</h5>
-													<a href="#" class="btn btn-primary" id="copyPermanentToTemporaryBtn">स्थायी ठेगानाबाट प्रतिलिपि</a>
-												</div>
-                                                <div class="form-group">
-													<label>अस्थायी प्रदेश</label>
-                                                    {{temporary_form.state}}
-												</div>
-												<div class="form-group">
-													<label>अस्थायी जिल्ला</label>
-                                                    {{temporary_form.district}}
-												</div>
-												<div class="form-group">
-													<label>अस्थायी पालिका</label>
-                                                    {{temporary_form.municipality}}
-												</div>
-                                                <div class="form-group" id="temporary_ward">
-													<label>अस्थायी वडा</label>
-													{{temporary_form.ward}}
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="add-customer-btns text-end">
-										<a href="#" type="reset" class="btn customer-btn-cancel">रद्द गर्नुहोस्</a>
-										<button type="button" class="btn customer-btn-save" id="saveChangesBtn">परिवर्तनहरू सुरक्षित गर्नुहोस</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- /Page Wrapper -->
-			
+         </ul>
+      </div>
+      {% endif %}
+      <!-- /Page Header -->				
+      <div class="row">
+         <div class="col-md-12">
+            <form id="consumerForm" action="{% url 'manage_consumer' %}" method="POST">
+               {% csrf_token %}
+               <div class="card-body">
+                  <div class="form-group-item">
+                     <h5 class="form-title">आधारभूत विवरणहरू</h5>
+                     <div class="profile-picture">
+                        <div class="upload-profile">
+                           <div class="profile-img">
+                              <img id="blah" class="avatar" src="assets/img/profiles/avatar-10.jpg" alt="">
+                           </div>
+                           <div class="add-profile">
+                              <h5>नयाँ फोटो अपलोड गर्नुहोस्</h5>
+                              <span>Profile-pic.jpg</span>
+                           </div>
+                        </div>
+                        <div class="img-upload">
+                           <label class="btn btn-primary">
+                           अपलोड गर्नुहोस् <input type="file">
+                           </label>
+                           <a class="btn btn-remove">Clipboard - Auto-Generated Number</a>
+                           <a class="btn btn-remove">Clipboard - Auto-Group Number</a>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>पुरा नाम</label>
+                              {{ form.full_name }}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>जन्म मिति</label>
+                              {{ form.birth_date }}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>उमेर</label>
+                              {{ form.age }}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>लिङ्ग</label>
+                              {{form.gender}}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>ई-मेल</label>
+                              {{form.email_address}}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>मोबाइल नम्बर</label>
+                              {{form.mobile_number}}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>नागरिकता नम्बर</label>
+                              {{form.citizenship_no}}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>नागरिकता जारि जिल्ला</label>
+                              {{form.citizenship_issue_district}}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>नागरिकता जारि मिति</label>
+                              {{form.citizenship_issue_date}}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>हजुरबाबूको नाम</label>
+                              {{form.grandfather_name}}
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label>बाबुको नाम</label>
+                              {{form.father_name}}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="form-group-item">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="billing-btn mb-2">
+                              <h5 class="form-title">स्थायी ठेगाना</h5>
+                           </div>
+                           <div class="form-group">
+                              <label>स्थायी प्रदेश</label>
+                              {{permanent_form.state}}
+                           </div>
+                           <div class="form-group">
+                              <label>स्थायी जिल्ला</label>
+                              {{permanent_form.district}}
+                           </div>
+                           <div class="form-group">
+                              <label>स्थायी पालिका</label>
+                              {{permanent_form.municipality}}
+                           </div>
+                           <div class="form-group">
+                              <label>स्थायी वडा</label>
+                              {{permanent_form.ward}}
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="billing-btn">
+                              <h5 class="form-title mb-0">अस्थायी ठेगाना</h5>
+                              <a href="#" class="btn btn-primary" id="copyPermanentToTemporaryBtn">स्थायी ठेगानाबाट प्रतिलिपि</a>
+                           </div>
+                           <div class="form-group">
+                              <label>अस्थायी प्रदेश</label>
+                              {{temporary_form.state}}
+                           </div>
+                           <div class="form-group">
+                              <label>अस्थायी जिल्ला</label>
+                              {{temporary_form.district}}
+                           </div>
+                           <div class="form-group">
+                              <label>अस्थायी पालिका</label>
+                              {{temporary_form.municipality}}
+                           </div>
+                           <div class="form-group" id="temporary_ward">
+                              <label>अस्थायी वडा</label>
+                              {{temporary_form.ward}}
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="add-customer-btns text-end">
+                     <a href="#" type="reset" class="btn customer-btn-cancel">रद्द गर्नुहोस्</a>
+                     <button type="button" class="btn customer-btn-save" id="saveChangesBtn">परिवर्तनहरू सुरक्षित गर्नुहोस</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /Page Wrapper -->
 {% endblock %}

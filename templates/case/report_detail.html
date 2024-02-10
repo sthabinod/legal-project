@@ -1,361 +1,361 @@
 {% extends "base.html" %}
 {% block 'content' %}  
 <!-- Page Wrapper -->
-         <div class="page-wrapper">
-            <div class="content container-fluid">
-               <!-- Page Header -->
-               <div class="page-header">
-                  <div class="content-page-header">
-                     <h5>विवाद/उजुरी विवरण</h5>
-                     <div class="list-btn">
-                        <ul class="filter-list">
-                           <li>
-                              <a href="{% url 'manage_case_report' %}" class="btn btn-sm btn-white text-danger me-2"><i class="fe fe-edit me-1"></i>सम्पादन गर्नुहोस्</a>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-               <!-- /Page Header -->
-               <div class="card customer-details-group">
-                  <h5>वादीको विवरण</h5>
-                  <div class="card-body">
-                     <div class="row align-items-center">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-                           <div class="customer-details">
-                              <div class="d-flex align-items-center">
-                                 <span class="customer-widget-img d-inline-flex">
-                                 <img class="rounded-circle" src="assets/img/profiles/avatar-05.jpg" alt="">
-                                 </span>
-                                 <div class="customer-details-cont">
-                                    <h6>पुरा नामथर</h6>
-                                    <p>सन्देस चौधरी</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-                           <div class="customer-details">
-                              <div class="d-flex align-items-center">
-                                 <span class="customer-widget-img d-inline-flex">
-                                 <img class="rounded-circle" src="assets/img/profiles/avatar-05.jpg" alt="">
-                                 </span>
-                                 <div class="customer-details-cont">
-                                    <h6>वकिलको नामथर</h6>
-                                    <p>सन्देस चौधरी</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="card customer-details-group">
-                  <h5>प्रतिवादीको विवरण</h5>
-                  <div class="card-body">
-                     <div class="row align-items-center">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-                           <div class="customer-details">
-                              <div class="d-flex align-items-center">
-                                 <span class="customer-widget-img d-inline-flex">
-                                 <img class="rounded-circle" src="assets/img/profiles/avatar-05.jpg" alt="">
-                                 </span>
-                                 <div class="customer-details-cont">
-                                    <h6>पुरा नामथर</h6>
-                                    <p>सन्देस चौधरी</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
-                           <div class="customer-details">
-                              <div class="d-flex align-items-center">
-                                 <span class="customer-widget-img d-inline-flex">
-                                 <img class="rounded-circle" src="assets/img/profiles/avatar-05.jpg" alt="">
-                                 </span>
-                                 <div class="customer-details-cont">
-                                    <h6>वकिलको नामथर</h6>
-                                    <p>सन्देस चौधरी</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- Inovices card -->
-               <div class="row">
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">मामला नम्बर</div>
-                                 <div class="dash-counts">
-                                    <p>२९८</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">मामिला</div>
-                                 <div class="dash-counts">
-                                    <p>स्थानीय सरकार संचालन ऐन २०७४को ४७ (१)</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">मामिलाको प्रकार</div>
-                                 <div class="dash-counts">
-                                    <p>825</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">मामिलाको चरण</div>
-                                 <div class="dash-counts">
-                                    <p>100</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">ऐन</div>
-                                 <div class="dash-counts">
-                                    <p>$125,586</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">फाइलिङ नम्बर</div>
-                                 <div class="dash-counts">
-                                    <p>२८</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">फाइलिङ मिति</div>
-                                 <div class="dash-counts">
-                                    <p>२९८</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">दर्ता नम्बर</div>
-                                 <div class="dash-counts">
-                                    <p>९८१</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">पहिलो तारिख</div>
-                                 <div class="dash-counts">
-                                    <p>825</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">बिषय</div>
-                                 <div class="dash-counts">
-                                    <p>100</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">विवरण</div>
-                                 <div class="dash-counts">
-                                    <p>$125,586</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
-                     <div class="card inovices-card w-100">
-                        <div class="card-body">
-                           <div class="dash-widget-header">
-                              <div class="dash-count">
-                                 <div class="dash-title">कैफियत</div>
-                                 <div class="dash-counts">
-                                    <p>२८</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- /Inovices card -->
-               <!-- Price Table -->
-               <div class="price-table-main">
-                  <div class="plan-selected">
-                     <h4> निवेदकको कागजातहरु </h4>
-                  </div>
-                  <div class="row">
-                     <div class="col-lg-4 col-md-12">
-                        <div class="card price-selected">
-                           <div class="card-body plan-header-selected">
-                              <div class="d-flex">
-                                 <div class="plan-header">
-                                    <div class="plan-title">
-                                       <h6 class="text-white">For Startups</h6>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="plan-button">
-                                 <a class="btn btn-white d-flex align-items-center justify-content-center" href="#">Get Started<span class="ms-2"><i class="fe fe-arrow-right"></i></span></a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-12">
-                        <div class="card price-selected">
-                           <div class="card-body plan-header-selected">
-                              <div class="d-flex">
-                                 <div class="plan-header">
-                                    <div class="plan-title">
-                                       <h6 class="text-white">For Startups</h6>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="plan-button">
-                                 <a class="btn btn-white d-flex align-items-center justify-content-center" href="#">Get Started<span class="ms-2"><i class="fe fe-arrow-right"></i></span></a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-4 col-md-12">
-                        <div class="card price-selected">
-                           <div class="card-body plan-header-selected">
-                              <div class="d-flex">
-                                 <div class="plan-header">
-                                    <div class="plan-title">
-                                       <h6 class="text-white">For Startups</h6>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="plan-button">
-                                 <a class="btn btn-white d-flex align-items-center justify-content-center" href="#">Get Started<span class="ms-2"><i class="fe fe-arrow-right"></i></span></a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- /Price Table -->
-               <!-- Table -->
-               <div class="row">
-                  <div class="col-sm-12">
-                     <div class="card-table">
-                        <div class="card-body">
-                           <div class="table-responsive">
-                              <table class="table table-stripped table-hover datatable">
-                                 <thead class="thead-light">
-                                    <tr>
-                                       <th>
-                                          <label class="custom_check">
-                                          <input type="checkbox" name="invoice">
-                                          <span class="checkmark"></span> 
-                                          </label>सि. न.
-                                       </th>
-                                       <th>बिषय</th>
-                                       <th>तारिख मिति</th>
-                                       <th>सिर्जना गरिएको मिति</th>
-                                       <th>स्थिति</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <td>
-                                          <label class="custom_check">
-                                          <input type="checkbox" name="invoice">
-                                          <span class="checkmark"></span> 
-                                          </label>
-                                          <a href="invoice-details.html" class="invoice-link">#4987</a>
-                                       </td>
-                                       <td>Food</td>
-                                       <td>Food</td>
-                                       <td>23 Mar 2023</td>
-                                       <td><span class="badge bg-success-light">Paid</span></td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <!-- /Table -->
+<div class="page-wrapper">
+   <div class="content container-fluid">
+      <!-- Page Header -->
+      <div class="page-header">
+         <div class="content-page-header">
+            <h5>विवाद/उजुरी विवरण</h5>
+            <div class="list-btn">
+               <ul class="filter-list">
+                  <li>
+                     <a href="{% url 'manage_case_report' %}" class="btn btn-sm btn-white text-danger me-2"><i class="fe fe-edit me-1"></i>सम्पादन गर्नुहोस्</a>
+                  </li>
+               </ul>
             </div>
          </div>
-         <!-- /Page Wrapper -->
-    {% endblock %}
+      </div>
+      <!-- /Page Header -->
+      <div class="card customer-details-group">
+         <h5>वादीको विवरण</h5>
+         <div class="card-body">
+            <div class="row align-items-center">
+               <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                  <div class="customer-details">
+                     <div class="d-flex align-items-center">
+                        <span class="customer-widget-img d-inline-flex">
+                        <img class="rounded-circle" src="assets/img/profiles/avatar-05.jpg" alt="">
+                        </span>
+                        <div class="customer-details-cont">
+                           <h6>पुरा नामथर</h6>
+                           <p>सन्देस चौधरी</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                  <div class="customer-details">
+                     <div class="d-flex align-items-center">
+                        <span class="customer-widget-img d-inline-flex">
+                        <img class="rounded-circle" src="assets/img/profiles/avatar-05.jpg" alt="">
+                        </span>
+                        <div class="customer-details-cont">
+                           <h6>वकिलको नामथर</h6>
+                           <p>सन्देस चौधरी</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="card customer-details-group">
+         <h5>प्रतिवादीको विवरण</h5>
+         <div class="card-body">
+            <div class="row align-items-center">
+               <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                  <div class="customer-details">
+                     <div class="d-flex align-items-center">
+                        <span class="customer-widget-img d-inline-flex">
+                        <img class="rounded-circle" src="assets/img/profiles/avatar-05.jpg" alt="">
+                        </span>
+                        <div class="customer-details-cont">
+                           <h6>पुरा नामथर</h6>
+                           <p>सन्देस चौधरी</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                  <div class="customer-details">
+                     <div class="d-flex align-items-center">
+                        <span class="customer-widget-img d-inline-flex">
+                        <img class="rounded-circle" src="assets/img/profiles/avatar-05.jpg" alt="">
+                        </span>
+                        <div class="customer-details-cont">
+                           <h6>वकिलको नामथर</h6>
+                           <p>सन्देस चौधरी</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Inovices card -->
+      <div class="row">
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">मामला नम्बर</div>
+                        <div class="dash-counts">
+                           <p>२९८</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">मामिला</div>
+                        <div class="dash-counts">
+                           <p>स्थानीय सरकार संचालन ऐन २०७४को ४७ (१)</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">मामिलाको प्रकार</div>
+                        <div class="dash-counts">
+                           <p>825</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">मामिलाको चरण</div>
+                        <div class="dash-counts">
+                           <p>100</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">ऐन</div>
+                        <div class="dash-counts">
+                           <p>$125,586</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">फाइलिङ नम्बर</div>
+                        <div class="dash-counts">
+                           <p>२८</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">फाइलिङ मिति</div>
+                        <div class="dash-counts">
+                           <p>२९८</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">दर्ता नम्बर</div>
+                        <div class="dash-counts">
+                           <p>९८१</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">पहिलो तारिख</div>
+                        <div class="dash-counts">
+                           <p>825</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">बिषय</div>
+                        <div class="dash-counts">
+                           <p>100</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">विवरण</div>
+                        <div class="dash-counts">
+                           <p>$125,586</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col-xl-2 col-lg-4 col-sm-6 col-12 d-flex">
+            <div class="card inovices-card w-100">
+               <div class="card-body">
+                  <div class="dash-widget-header">
+                     <div class="dash-count">
+                        <div class="dash-title">कैफियत</div>
+                        <div class="dash-counts">
+                           <p>२८</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /Inovices card -->
+      <!-- Price Table -->
+      <div class="price-table-main">
+         <div class="plan-selected">
+            <h4> निवेदकको कागजातहरु </h4>
+         </div>
+         <div class="row">
+            <div class="col-lg-4 col-md-12">
+               <div class="card price-selected">
+                  <div class="card-body plan-header-selected">
+                     <div class="d-flex">
+                        <div class="plan-header">
+                           <div class="plan-title">
+                              <h6 class="text-white">For Startups</h6>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="plan-button">
+                        <a class="btn btn-white d-flex align-items-center justify-content-center" href="#">Get Started<span class="ms-2"><i class="fe fe-arrow-right"></i></span></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+               <div class="card price-selected">
+                  <div class="card-body plan-header-selected">
+                     <div class="d-flex">
+                        <div class="plan-header">
+                           <div class="plan-title">
+                              <h6 class="text-white">For Startups</h6>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="plan-button">
+                        <a class="btn btn-white d-flex align-items-center justify-content-center" href="#">Get Started<span class="ms-2"><i class="fe fe-arrow-right"></i></span></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+               <div class="card price-selected">
+                  <div class="card-body plan-header-selected">
+                     <div class="d-flex">
+                        <div class="plan-header">
+                           <div class="plan-title">
+                              <h6 class="text-white">For Startups</h6>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="plan-button">
+                        <a class="btn btn-white d-flex align-items-center justify-content-center" href="#">Get Started<span class="ms-2"><i class="fe fe-arrow-right"></i></span></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /Price Table -->
+      <!-- Table -->
+      <div class="row">
+         <div class="col-sm-12">
+            <div class="card-table">
+               <div class="card-body">
+                  <div class="table-responsive">
+                     <table class="table table-stripped table-hover datatable">
+                        <thead class="thead-light">
+                           <tr>
+                              <th>
+                                 <label class="custom_check">
+                                 <input type="checkbox" name="invoice">
+                                 <span class="checkmark"></span> 
+                                 </label>सि. न.
+                              </th>
+                              <th>बिषय</th>
+                              <th>तारिख मिति</th>
+                              <th>सिर्जना गरिएको मिति</th>
+                              <th>स्थिति</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>
+                                 <label class="custom_check">
+                                 <input type="checkbox" name="invoice">
+                                 <span class="checkmark"></span> 
+                                 </label>
+                                 <a href="invoice-details.html" class="invoice-link">#4987</a>
+                              </td>
+                              <td>Food</td>
+                              <td>Food</td>
+                              <td>23 Mar 2023</td>
+                              <td><span class="badge bg-success-light">Paid</span></td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- /Table -->
+   </div>
+</div>
+<!-- /Page Wrapper -->
+{% endblock %}

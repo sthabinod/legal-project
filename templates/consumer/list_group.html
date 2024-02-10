@@ -5,7 +5,7 @@
       <!-- Page Header -->
       <div class="page-header">
          <div class="content-page-header">
-            <h5>मामला चरण सेटअप सूची</h5>
+            <h5>सेवाग्राही समूह सेटअप सूची</h5>
             <div class="list-btn">
                <ul class="filter-list">
                   <li>
@@ -26,22 +26,22 @@
                         <thead class="thead-light">
                            <tr>
                               <th>#</th>
-                              <th>नाम</th>
-                              <th>नोटहरू</th>
-                              <th>स्थिति</th>
+                              <th>सेवाग्राही समूह नम्बर</th>
+                              <th>पुरा नाम</th>
+                              <th>विवाद/उजुरी स्थिति</th>
                               <th class="text-end">कार्यहरू</th>
                            </tr>
                         </thead>
                         <tbody>
-                           {% for case_stage in case_stage_list %}
+                           {% for object in case_type_list %}
                            <tr>
                               <td>{{counter}}</td>
-                              <td>{{case_stage.name}}</td>
-                              <td>{{case_stage.notes}}</td>
-                              <td><span class="badge {% if case_stage.status == 'सक्रिय' %}bg-success-light text-success-light{% elif case_stage.status == 'निष्क्रिय' %}bg-danger-light text-danger-light{% endif %}">{{case_stage.status}}</span></td>
+                              <td>{{object.name}}</td>
+                              <td>{{object.notes}}</td>
+                              <td><span class="badge {% if object.status == 'सक्रिय' %}bg-success-light text-success-light{% elif object.status == 'निष्क्रिय' %}bg-danger-light text-danger-light{% endif %}">{{object.status}}</span></td>
                               <td class="d-flex align-items-center">
-                                 <a href="{% url 'case_stage_update' case_stage.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ case_stage.id }})"><i class="far fa-edit me-2"></i></a>
-                                 <a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ case_stage.id }})"><i class="far fa-trash-alt me-2"></i></a>
+                                 <a href="{% url 'case_type_update' object.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ object.id }})"><i class="far fa-edit me-2"></i></a>
+                                 <a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ object.id }})"><i class="far fa-trash-alt me-2"></i></a>
                               </td>
                            </tr>
                            {% endfor %}			
@@ -62,7 +62,7 @@
       <div class="modal-content">
          <div class="modal-header border-0 pb-0">
             <div class="form-header modal-header-title text-start mb-0">
-               <h4 class="mb-0">मामला चरण थप्नुहोस्</h4>
+               <h4 class="mb-0">सेवाग्राही समूह थप्नुहोस्</h4>
             </div>
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span class="align-center" aria-hidden="true">&times;</span>
@@ -70,7 +70,7 @@
          </div>
          <div class="modal-body">
             <div class="row">
-               <form method="post" action="{% url 'case_stage_create' %}">
+               <form method="post" action="{% url 'case_type_create' %}">
                   {% csrf_token %}
                   {% for field in form %}
                   <div class="mb-3">
@@ -104,7 +104,7 @@
       <div class="modal-content">
          <div class="modal-header border-0 pb-0">
             <div class="form-header modal-header-title text-start mb-0">
-               <h4 class="mb-0">मामला चरण सम्पादन गर्नुहोस्</h4>
+               <h4 class="mb-0">सेवाग्राही समूह थप्नुहोस्</h4>
             </div>
             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span class="align-center" aria-hidden="true">&times;</span>
@@ -144,7 +144,7 @@
       <div class="modal-content">
          <div class="modal-body">
             <div class="form-header">
-               <h3>मेटाउन मामला चरण</h3>
+               <h3>मेटाउन सेवाग्राही समूह</h3>
                <p>के तपाईं निश्चित रूपमा मेटाउन चाहनुहुन्छ?</p>
             </div>
             <div class="modal-btn delete-action">
@@ -176,7 +176,7 @@
        if (deleteId !== null) {
            // Make an AJAX request to soft delete the ActLaw
            $.ajax({
-               url: `/case/case_stage/${deleteId}/delete/`,
+               url: `/case/case_type/${deleteId}/delete/`,
                method: 'POST',
                data: { csrfmiddlewaretoken: '{{ csrf_token }}' },  // Include CSRF token
                success: function (data) {
@@ -197,7 +197,7 @@
        var actLawId = $('#act_law_id').val();
        console.log(deleteId)
        $.ajax({
-           url: `/case/case_stage/${deleteId}/update/`,
+           url: `/case/case_type/${deleteId}/update/`,
            method: 'POST',
            data: formData,
            success: function (data) {

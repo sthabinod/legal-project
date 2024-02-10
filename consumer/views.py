@@ -45,3 +45,10 @@ class ManageConsumerView(View):
             print(consumer_form.errors, permanent_form.errors, temporary_form.errors)
             messages.error(request, "Form submission failed. Please check the forms.")
             return render(request, self.template_name, {'form': consumer_form, 'permanent_form': permanent_form, 'temporary_form': temporary_form,'ce':consumer_form.errors,'te':permanent_form.errors,'pe': temporary_form.errors})
+    
+class ConsumerGroupView(View):
+    template_name = 'consumer/list_group.html'
+
+    def get(self, request, *args, **kwargs):
+        consumer_group = Consumer.objects.all()
+        return render(request, self.template_name, {"consumer_group": consumer_group})
