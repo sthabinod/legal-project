@@ -22,26 +22,33 @@
          <ul>
             <li class="menu-title"><span>मुख्य सेटअप</span></li>
             <li class="submenu">
-               <a href="#"><i class="fe fe-package"></i> <span>मुख्य सेटअप</span> <span class="menu-arrow"></span></a>
+               <a href="#"><i class="fe fe-package"></i> <span>प्रयोगकर्ता सेटअप</span> <span class="menu-arrow"></span></a>
                <ul>
                   <li><a href="{% url 'office_user_page' %}" class="{% if request.path == '/users/office_user/' %}active{% endif %}">कार्यालय सेटअप</a></li>
                   <li><a href="{% url 'officer_user_page' %}" class="{% if request.path == '/users/officer_user/' %}active{% endif %}">शाखा अधिकारी सेटअप</a></li>
                   <li><a href="{% url 'sub_head_user_page' %}" class="{% if request.path == '/users/sub_head_user/' %}active{% endif %}">उप प्रमुख सेटअप</a></li>
                   <li><a href="{% url 'helper_user_page' %}" class="{% if request.path == '/users/helper_user/' %}active{% endif %}">कार्यालय सहयोगी सेटअप</a></li>
-                  <li><a href="{% url 'case_type_list' %}" class="{% if request.path == '/case/case_type/' %}active{% endif %}">मामिला</a></li>
-                  <li><a href="{% url 'case_stage_list' %}" class="{% if request.path == '/case/case_stage/' %}active{% endif %}">मामला चरण</a></li>
-                  <li><a href="{% url 'case_subtype_list' %}" class="{% if request.path == '/case/case_subtype/' %}active{% endif %}">‌मामला उप-प्रकार</a></li>
-                  <li><a href="{% url 'court_type_list' %}" class="{% if request.path == '/act_law/court_type/' %}active{% endif %}">न्यायिक समितिको प्रकार</a></li>
+               </ul>
+            </li>
+            <li class="submenu">
+               <a href="#"><i class="fe fe-package"></i> <span>व्यवस्थापन सेटअप</span> <span class="menu-arrow"></span></a>
+               <ul>
                   <li><a href="{% url 'designation_list' %}" class="{% if request.path == '/common/designation/' %}active{% endif %}">पद</a></li>
                   <li><a href="{% url 'document_type_list' %}" class="{% if request.path == '/common/document_type/' %}active{% endif %}"> ‌कागजात प्रकार</a></li>
-                  <li><a href="{% url 'judge_committee_list' %}"class="{% if request.path == '/common/judge_committee/' %}active{% endif %}"> ‌न्यायिक समितिको सदस्यहरु </a></li>
                   <li><a href="{% url 'office_ward_list' %}" class="{% if request.path == '/common/office_ward/' %}active{% endif %}"> ‌वडा कार्यालय </a></li>
                   <li><a href="{% url 'fiscal_year_list' %}" class="{% if request.path == '/common/fiscal_year/' %}active{% endif %}">‌वित्तीय वर्ष </a></li>
-                  <li> 
+               </ul>
+            </li>
+            <li class="submenu">
+               <a href="#"><i class="fe fe-package"></i> <span>परियोजना आधारभूत सेटअप</span> <span class="menu-arrow"></span></a>
+               <ul>
+                  <li><a href="{% url 'case_type_list' %}" class="{% if request.path == '/case/case_type/' %}active{% endif %}">मामिला</a></li>
+                  <li><a href="{% url 'case_subtype_list' %}" class="{% if request.path == '/case/case_subtype/' %}active{% endif %}">‌मामला प्रकार</a></li>
+                  <li><a href="{% url 'case_stage_list' %}" class="{% if request.path == '/case/case_stage/' %}active{% endif %}">मामला चरण</a></li>
+                  <li><a href="{% url 'court_type_list' %}" class="{% if request.path == '/act_law/court_type/' %}active{% endif %}">न्यायिक समितिको प्रकार</a></li>
+                  <li><a href="{% url 'judge_committee_list' %}"class="{% if request.path == '/common/judge_committee/' %}active{% endif %}"> ‌न्यायिक समितिको सदस्यहरु </a></li>
                   <li><a href="{% url 'mail_milap_karta_list' %}" class="{% if request.path == '/case/mail_milap_karta/' %}active{% endif %}">मेलमिलाप कर्ता </a></li>
-                  <li>
                   <li><a href="{% url 'actlaw_list' %}" class="{% if request.path == '/act_law/' %}active{% endif %}">ऐन/कानुन </a></li>
-                  <li>
                </ul>
             </li>
          </ul>
