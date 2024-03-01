@@ -40,10 +40,53 @@
                               <td>{{object.notes}}</td>
                               <td><span class="badge {% if object.status == 'सक्रिय' %}bg-success-light text-success-light{% elif object.status == 'निष्क्रिय' %}bg-danger-light text-danger-light{% endif %}">{{object.status}}</span></td>
                               <td class="d-flex align-items-center">
-                                 <a href="{% url 'case_type_update' object.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype" onclick="setDeleteId({{ object.id }})"><i class="far fa-edit me-2"></i></a>
+                                 <a href="{% url 'case_type_update' object.id %}" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#edit_casetype_{{object.id}}" onclick="setDeleteId({{ object.id }})"><i class="far fa-edit me-2"></i></a>
                                  <a href="" class="btn-action-icon me-2" data-bs-toggle="modal" data-bs-target="#delete_casetype" onclick="setDeleteId({{ object.id }})"><i class="far fa-trash-alt me-2"></i></a>
                               </td>
                            </tr>
+                           <!-- Edit Modal -->
+<div class="modal custom-modal fade" id="edit_casetype_{{object.id}}" role="dialog">
+   <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+         <div class="modal-header border-0 pb-0">
+            <div class="form-header modal-header-title text-start mb-0">
+               <h4 class="mb-0">मामला नाम सम्पादन गर्नुहोस्</h4>
+            </div>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span class="align-center" aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="row">
+               <form id="update-form">
+                  {% csrf_token %}
+                  <input type="hidden" id="edit-id" name="id">
+                  <div class="mb-3">
+                     <label for="edit-name" class="form-label">नाम</label>{{object.status}}
+                     <input type="text" id="edit-name" name="name" value="{{object.name}}" class="form-control">
+                  </div>
+                  <div class="mb-3">
+                     <label for="edit-notes" class="form-label">नोटहरू</label>
+                     <textarea name="notes" class="form-control">{{object.notes}}</textarea>
+                  </div>
+                  <div class="mb-3">
+                     <label for="edit-status" class="form-label">स्थिति</label>
+                     <select id="edit-status" name="status" class="form-control">
+                        <option value="सक्रिय" {% if object.status == "सक्रिय" %}selected{% endif %}>सक्रिय</option>
+                        <option value="निष्क्रिय" {% if object.status == "निष्क्रिय" %}selected{% endif %}>निष्क्रिय</option>
+                     </select>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <a href="#" data-bs-dismiss="modal" class="btn btn-primary paid-cancel-btn me-2">रद्द गर्नुहोस्</a>
+            <button data-bs-dismiss="modal" class="btn btn-primary paid-continue-btn" onclick="updateActLaw()">अपडेट गर्नुहोस्</button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- /Edit Modal -->
                            {% endfor %}			
                         </tbody>
                      </table>

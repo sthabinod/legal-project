@@ -149,6 +149,7 @@ class CaseTypeCreateView(View):
             messages.error(request, "Form submission failed. Please check the form.")
             return render(request, self.template_name, {'form': form})
 class CaseTypeUpdateView(View):
+    
     template_name = 'case/case_type.html'
 
     def get(self, request, pk, *args, **kwargs):
@@ -157,13 +158,24 @@ class CaseTypeUpdateView(View):
         return render(request, self.template_name, {'form': form, 'case_type': case_type})
 
     def post(self, request, pk, *args, **kwargs):
-        case_type = get_object_or_404(CaseType, pk=pk)
+        
+        case_type = get_object_or_404(CaseType, id=pk)
+        case = CaseType.objects.get(id=pk)
+        print(case.status)
+        print(case.name)
+        print(case.notes)
+        print("HERE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        
         form = CaseTypeForm(request.POST, instance=case_type)
+        print(case_type, "CASE TYPE",pk)
         if form.is_valid():
+            print("form...")
             form.save()
+            print("FORM SAVED.. ")
             messages.success(request, "Object updated successfully.")
             return redirect('case_type_list')
         else:
+            print(form.errors)
             messages.error(request, "Update form submission failed. Please check the form.")
             return render(request, self.template_name, {'form': form, 'case_type': case_type})
 
